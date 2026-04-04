@@ -1,0 +1,223 @@
+/* Sections */
+.stats-clients-results {
+  background: #000;
+  color: #fff;
+  padding: 64px 16px;
+}
+.stats-clients-results .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media only screen and (max-width: $tablet) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  @media only screen and (max-width: $mobile) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+.header-card {
+  grid-column: span 3;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: none !important;
+  border-left: none !important;
+}
+.header-card h2 {
+  font-size: 32px;
+  margin: 0 0 0.75rem;
+}
+
+.header-card .stat-label {
+  display: block;
+  margin-top: 0.4rem;
+  color: #A5A5A5;
+  font-weight: 400;
+  // text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: .05em;
+  padding-right: 20px;
+}
+
+.stat-card {
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 14px 0px 28px 28px;
+  text-align: left;
+}
+.stat-value {
+  display: block;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+}
+
+.stat-label {
+  display: block;
+  margin-top: -0.6rem;
+  color: #A5A5A5;
+  font-weight: 400;
+  // text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: .05em;
+  padding-right: 20px;
+}
+.logo-item {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+.logo-item img {
+  max-height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.description {
+  max-width: 720px;
+  color: #ccc;
+  margin: 2rem auto 0;
+  text-align: center;
+}
+.partner-banner {
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-top: 2rem;
+}
+.banner-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.banner-left img {
+  height: 61px;
+  width: auto;
+}
+.banner-left span {
+  font-size: 20px;
+  line-height: 28px;
+  margin-left: 50px;
+  font-weight: 600;
+}
+.banner-left span strong{
+  color: #F39412;
+}
+
+.banner-btn {
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.6rem 1.1rem;
+  text-decoration: none;
+  border-radius: 200px;
+  display: inline-flex;
+  align-items: center;
+}
+.banner-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.section {
+  padding: 96px 0;
+
+  @media only screen and (max-width: $desktop) {
+    padding: 80px 0;
+  }
+
+  @media only screen and (max-width: $mobile) {
+     padding: 60px 0;
+  }
+}
+
+.section__info {
+  margin-bottom: 60px;
+
+  .section__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .section__title {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1;
+    }
+  
+    .section__link {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1;
+      white-space: nowrap;
+      will-change: transform;
+  
+      &:hover {
+        color: $text-color;
+
+        i {
+          transform: translateX(2px);
+        }
+      }
+
+      i {
+        width: 18px;
+        height: 18px;
+        margin-left: 4px;
+        font-size: 14px;
+        line-height: 18px;
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.05%);
+        background: $background-color-alt;
+        transition: .2s;
+      }
+    }
+  }
+
+  .section__description {
+    max-width: 480px;
+    line-height: 1.6;
+    margin: 32px 0 0;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  @media only screen and (max-width: $desktop) {
+    .section__description {
+      max-width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: $mobile) {
+    margin-bottom: 48px;
+
+    .section__head {
+
+      .section__title {
+        margin-right: 12px;
+        font-size: 28px;
+      }
+
+      .section__link {
+        font-size: 14px;
+      }
+    }
+  }
+}

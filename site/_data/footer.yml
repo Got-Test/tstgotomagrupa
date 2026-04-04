@@ -1,0 +1,7 @@
+footer_menu__settings:
+  menu__items:
+    - title: 'Ciasteczka & Polityka Prywatności'
+      url: '/Privacy/'
+
+copyright_text_html: >-
+  <p> &copy; Prawa Autorskie 2026 GOTOMA. Wszystkie prawa zastrzeżone.</p>

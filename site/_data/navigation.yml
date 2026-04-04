@@ -1,0 +1,15 @@
+logo_image: '/images/gotoma.svg'
+logo_image2: '/images/gotoma_general 1.svg'
+logo_image3: '/images/codarius.svg' # You can add own logo. For example '/images/logo.png'.
+
+menu__settings:
+  menu__items:
+    - title: 'O grupie'
+      url: '#o-grupie'
+    - title: 'Gotoma General'
+      url: '#gotoma-general'
+    - title: 'Gotoma Software House'
+      url: '#gotoma-software-house'
+    - title: 'Codarius'
+      url: '#codarius'
+      
