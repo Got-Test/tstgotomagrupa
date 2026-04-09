@@ -40,7 +40,7 @@
   }
 
   @media only screen and (max-width: $tablet) {
-    grid-column: span 1;
+    grid-column: span 3 !important;
   }
 
   @media only screen and (max-width: $mobile) {
@@ -61,6 +61,10 @@
   font-size: 16px;
   letter-spacing: .05em;
   padding-right: 20px;
+
+  @media only screen and (max-width: $tablet) {
+    padding-bottom: 16px;
+  }
 }
 
 .stat-card {
@@ -69,7 +73,7 @@
   text-align: left;
 
   @media only screen and (max-width: $tablet) {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   @media only screen and (max-width: $mobile) {
