@@ -1,4 +1,5 @@
 ---
+lang: pl
 idHref: gotoma-general
 date: 2018-11-11 12:01:35
 title: Kompleksowe wdrożenia IT

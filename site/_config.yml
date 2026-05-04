@@ -37,15 +37,15 @@ defaults:
       path: ""
     values:
       layout: default
-  - scope:
-      type: pages
-      path: _pages/index.html
-    values:
-      permalink: /
+
+  # REMOVE the old homepage-specific rule
+  # because you now have multiple homepage variants
+
   - scope:
       type: projects
     values:
       layout: project
+
   - scope:
       type: posts
     values:

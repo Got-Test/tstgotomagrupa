@@ -1,4 +1,5 @@
 ---
+lang: pl
 idHref: gotoma-software-house
 date: 2018-11-12 12:01:35
 title: Dedykowane systemy i aplikacje

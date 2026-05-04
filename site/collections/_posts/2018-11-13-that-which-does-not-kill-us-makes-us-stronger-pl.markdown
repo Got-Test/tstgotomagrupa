@@ -1,4 +1,5 @@
 ---
+lang: pl
 idHref: codarius
 date: 2018-11-13 12:01:35
 title: Sprzedaż online i marketing

@@ -340,3 +340,50 @@
     }
   }
 }
+
+.lang-switcher {
+  width: 80px;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Hide dropdown by default */
+.dropdown {
+  display: none;
+  background: #222;
+  margin-top: 5px;
+}
+
+/* Show when open */
+.lang-switcher[open] .dropdown {
+  display: block;
+}
+
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.option {
+  padding: 5px 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.option.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 20px;
+  height: 2px;
+  background: gold;
+}
+
+.option:hover {
+  background: #333;
+}
