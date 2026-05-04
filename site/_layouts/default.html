@@ -54,10 +54,10 @@
 
         // Set default consent state - everything denied for GDPR compliance
         gtag('consent', 'default', {
-          'ad_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied',
-          'analytics_storage': 'denied',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted',
           'wait_for_update': 500 // Wait 500ms for consent update
         });
 
@@ -67,7 +67,7 @@
           'cookie_flags': 'SameSite=Strict;Secure'
         });
 
-        console.log('Google Analytics loaded with default denied consent');
+        console.log('Google Analytics loaded with default granted consent');
       };
     }
 
