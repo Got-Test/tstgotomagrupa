@@ -8,10 +8,10 @@ menu__settings:
   menu__items:
     - title: 'About us'
       url: 'en/#about-us'
-    - title: 'Gotoma General'
+    - title: 'GOTOMA General'
       url: 'en/#gotoma-general'
-    - title: 'Gotoma Software House'
-      url: '#gotoma-software-house'
+    - title: 'GOTOMA Software House'
+      url: 'en/#gotoma-software-house'
     - title: 'Codarius'
       url: 'en/#codarius'
       

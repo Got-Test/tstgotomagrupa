@@ -135,9 +135,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // Scroll to top
   ============================ */
   const btnScrollToTop = document.querySelector(".top");
+  const menu  = document.querySelector(".main-nav");
 
   window.addEventListener("scroll", function () {
-    window.scrollY > window.innerHeight ? btnScrollToTop.classList.add("is-active") : btnScrollToTop.classList.remove("is-active");
+    const menuBottom = menu.getBoundingClientRect().bottom;
+
+    if (menuBottom <= 0) {
+      btnScrollToTop.classList.add("is-active");
+    } else {
+      btnScrollToTop.classList.remove("is-active");
+    }
   });
 
   btnScrollToTop.addEventListener("click", function () {

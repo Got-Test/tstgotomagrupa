@@ -1,0 +1,7 @@
+footer_menu__settings:
+  menu__items:
+    - title: 'Cookies & Privacy Policy'
+      url: '/en/privacy'
+
+copyright_text_html: >-
+  <p> &copy; Copyright 2026 GOTOMA. All rights reserved.</p> 
