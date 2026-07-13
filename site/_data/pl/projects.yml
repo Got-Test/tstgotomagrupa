@@ -154,7 +154,7 @@ tooltips:
       color: magenta
       x: 260
       y: 150
-      icon: "/images/icons/store.png"
+      icon: "/images/icons/shopping-bag.svg"
       title: "Sklepy internetowe"
       description: "Platformy sprzedażowe."
       partners_label: "Partnerzy obszaru:"
@@ -174,7 +174,7 @@ tooltips:
       color: red
       x: 360
       y: 500
-      icon: "/images/icons/shield-check.png"
+      icon: "/images/icons/shield-check.svg"
       title: "Cyberbezpieczeństwo"
       description: "NIS2, DORA, RODO, AI ACT, Audyty i procedury."
       partners_label: "Partnerzy obszaru:"
