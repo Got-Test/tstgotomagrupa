@@ -166,7 +166,7 @@ tooltips:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
           alt: "GOTOMA S.H."
-          href: "https://www.gotoma.pl/"
+          href: "https://www.gotoma.pl/en/"
       cta:
         text: "Check"
         href: "/kontakt/"
@@ -185,8 +185,8 @@ tooltips:
           href: "https://www.spiree.io/"
         - name: "GOTOMA GENERAL"
           logo: "/images/partners/gotoma-general.png"
-          alt: "GOTOMA"
-          href: "https://www.gotoma.pl/"
+          alt: "GOTOMA GENERAL"
+          href: "https://gotomageneral.com/en/"
       cta:
         text: "Check"
         href: "/kontakt/"
@@ -264,7 +264,7 @@ tooltips:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
           alt: "GOTOMA"
-          href: "https://www.gotoma.pl/"
+          href: "https://gotoma.pl/en/"
       cta:
         text: "Check"
         href: "/kontakt/"
@@ -285,7 +285,7 @@ tooltips:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
           alt: "GOTOMA"
-          href: "https://www.gotoma.pl/"
+          href: "https://www.gotoma.pl/en/"
         - name: "so simple"
           logo: "/images/partners/sosimplefuture.png"
           alt: "SoSimpleFuture"
@@ -311,7 +311,7 @@ tooltips:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
           alt: "GOTOMA"
-          href: "https://www.gotoma.pl/"
+          href: "https://www.gotoma.pl/en/"
       cta:
         text: "Check"
         href: "/kontakt/"
@@ -336,7 +336,7 @@ tooltips:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
           alt: "GOTOMA"
-          href: "https://www.gotoma.pl/"
+          href: "https://www.gotoma.pl/en/"
       cta:
         text: "Check"
         href: "/kontakt/"
@@ -365,7 +365,7 @@ tooltips:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
           alt: "GOTOMA"
-          href: "https://www.gotoma.pl/"
+          href: "https://www.gotoma.pl/en/"
       cta:
         text: "Check"
         href: "/kontakt/"
@@ -382,7 +382,7 @@ tooltips:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
           alt: "GOTOMA S.H."
-          href: "https://www.gotoma.pl/"
+          href: "https://www.gotoma.pl/en/"
       cta:
         text: "Check"
         href: "/kontakt/"
@@ -407,7 +407,7 @@ tooltips:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
           alt: "GOTOMA"
-          href: "https://www.gotoma.pl/"
+          href: "https://www.gotoma.pl/en/"
       cta:
         text: "Check"
         href: "/kontakt/"

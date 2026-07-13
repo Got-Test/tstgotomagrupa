@@ -20,7 +20,7 @@ item12:  'ERP Factory, rozwijamy własne produkty'
 item13:  'Projektujemy i rozwijamy własny system ERP dla produkcji i biznesu, który odpowiada na realne potrzeby operacyjne - od planowania po kontrolę procesów.'
 
 item14: 'Jak to działa?'
-item15: 'Łączymy gotowe rozwiązania partnerów z integracjami i aplikacjami twoorzonymi na miarę.'
+item15: 'Łączymy gotowe rozwiązania partnerów z integracjami i aplikacjami tworzonymi na miarę.'
 item16: 'GOTOMA GENERAL - KOORDYNACJA CYFRYZACJI,'
 item17: 'IT360, ODPOWIEDZIALNOŚĆ ZA PROJEKT'
 item18: 'Finansowanie'
@@ -186,7 +186,7 @@ tooltips:
         - name: "GOTOMA GENERAL"
           logo: "/images/partners/gotoma-general.png"
           alt: "GOTOMA"
-          href: "https://www.gotoma.pl/"
+          href: "https://www.gotomageneral.com/"
       cta:
         text: "Check"
         href: "/kontakt/"
