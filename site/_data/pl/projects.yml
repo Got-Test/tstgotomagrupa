@@ -241,9 +241,9 @@ tooltips:
           alt: "Ad Astra"
           href: "https://ad-astra.pl/"
         - name: "smart hub"
-          logo: "/images/partners/smarthub.svg"
-          alt: "GOTOMA"
-          href: "https://www.smarthub.pl/"
+          logo: "/images/partners/smarthub_logo_black.svg"
+          alt: "SmartHub"
+          href: "https://smarthubgroup.eu/"
       cta:
         text: "Sprawdź"
         href: "/kontakt/"
