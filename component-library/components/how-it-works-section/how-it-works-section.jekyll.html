@@ -1,6 +1,6 @@
 <!-- begin how it works -->
 {% if include.show_how_it_works != false %}
-<section id="{% if page.lang == 'pl' %}jak-to-dziala{% else %}how-it-works{% endif %}" class="stats-how-it-works">
+<section id="{% if page.lang == 'pl' %}jak-to-dziala{% else %}how-it-works{% endif %}" class="stats-how-it-works scheme-gold">
   <div class="scheme-section__inner container">
     <div class="scheme-desktop">
     <div class="header-card-partners">
@@ -12,9 +12,6 @@
     <div class="scheme-story">
       <div class="scheme-story__visual">
     <div class="scheme-diagram" style="--canvas-w: 1024; --canvas-h: 768;">
-      <!-- <div class="scheme-diagram__dots" aria-hidden="true"></div> -->
-
-      <div class="dotsTest"><canvas></canvas></div>
       <div class="scheme-header-box">
         <div class="scheme-header-box__title">
           {{site.data[page.lang].projects.item16}}<br>
@@ -347,7 +344,6 @@
   </div>
 
   <div class="scheme-mobile-diagram">
-    <div class="scheme-mobile-diagram__dots" aria-hidden="true"></div>
 
     <svg class="scheme-mobile-diagram__lines" viewBox="0 0 382 1210" aria-hidden="true" focusable="false">
       <!-- blue -->

@@ -313,3 +313,15 @@ Wyniki:
 - **Pasek przewijania (wariant złoty, wąskie okno na desktopie):** canvas kropek mobile miał `width: 100vw` wewnątrz przewijanego w poziomie kontenera diagramu. Teraz canvas jest w samej sekcji (pełna szerokość bez `100vw`).
 - Sprawdzone: brak przewijania w poziomie przy 496/820/1440 px, sekwencja desktop/mobile, układ statyczny (Chromium/WebKit/Firefox, tablet, reduced-motion), 0 px przesunięcia przy końcu sekwencji, zamykanie arkusza.
 
+### Decyzje: kolejność firm i złoty diagram (2026-09-28)
+
+- **Kolejność firm:** GOTOMA General → GOTOMA Software House → Codarius → ERP Factory. Logo w nagłówku i podmenu już tak miały; kafelki „Wybierz czego potrzebujesz” zmienione przez zamianę dat postów GG i Codariusa (nazwa pliku i `date`). Adresy postów bez zmian.
+- **Złoty diagram domyślnie:**
+  - klasa `scheme-gold` w szablonie sekcji;
+  - skrypt `site/_includes/diagram-gold.html` (dawny `diagram-lab.html`), działa na stronach z sekcją diagramu;
+  - usunięty przełącznik „Obecny/Złoty”.
+- **Usunięte laboratoria i stare kropki:**
+  - `order-lab.html`, `_data/order_lab.yml` i atrybuty `data-brand` w nagłówku;
+  - stare szare kropki: canvas `.dotsTest` i klasy App/Dot w `common.js`, `.scheme-mobile-diagram__dots` w szablonie i stylach.
+  - Stare linki `?diagram=…` i `?kolejnosc` otwierają zwykłą stronę.
+

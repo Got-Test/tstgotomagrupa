@@ -708,19 +708,6 @@ html.smooth-page-scroll {
   overflow: hidden;
 }
 
-.scheme-diagram__dots {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-
-  // Placeholder pod późniejsze prawdziwe kropki.
-  // Na start daje tylko delikatne tło, żeby layout był czytelny.
-  background-image: radial-gradient(rgba(255, 255, 255, .14) 1.5px, transparent 1.5px);
-  background-size: 14px 14px;
-  opacity: .65;
-}
-
 .scheme-header-box {
   position: absolute;
   left: calc(80 / 1024 * 100%);
@@ -1759,17 +1746,6 @@ canvas {
 
 .stats-how-it-works.scheme-mobile-scroll-story .scheme-mobile-diagram.is-fit {
   zoom: 1;
-}
-
-.scheme-mobile-diagram__dots {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-
-  background-image: radial-gradient(rgba(255, 255, 255, .18) 1.2px, transparent 1.2px);
-  background-size: 14px 14px;
-  opacity: .7;
 }
 
 .scheme-mobile-diagram__lines {

@@ -1,7 +1,7 @@
 ---
 lang: pl
 idHref: codarius
-date: 2018-11-13 12:01:35
+date: 2018-11-11 12:01:35
 title: Sprzedaż online i marketing
 description: >-
   Platforma e-commerce, na której szybko uruchomisz swój sklep internetowy i skorzystasz z dodatkowych usług: identyfikacja wizualna, pozycjonowanie/SEO, content marketing, social media, reklamy płatne/Google i Meta Ads. 

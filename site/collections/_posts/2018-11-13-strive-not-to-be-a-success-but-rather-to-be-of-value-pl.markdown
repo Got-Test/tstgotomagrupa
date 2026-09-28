@@ -1,7 +1,7 @@
 ---
 lang: pl
 idHref: gotoma-general
-date: 2018-11-11 12:01:35
+date: 2018-11-13 12:01:35
 title: Kompleksowe wdrożenia IT
 description: >-
   Realizujemy projekty od A do Z - sprzęt, infrastruktura i oprogramowanie. Przetargi, dofinansowania. Generalne wykonawstwo projektów IT „pod klucz”. Wdrażamy cyberbezpieczną cyfryzację. 

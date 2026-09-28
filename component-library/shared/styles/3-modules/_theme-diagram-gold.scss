@@ -1,7 +1,6 @@
 /* =========================================================
-   Eksperyment „złoty diagram” (sekcja „Jak to działa?”).
-   Włączany parametrem ?diagram=zloty (site/_includes/diagram-lab.html dodaje klasę .scheme-gold
-   i rysuje kropki). Bez tej klasy nic się nie zmienia. Kolory kategorii (linie, poświaty kart)
+   Złoty diagram (sekcja „Jak to działa?”). Klasa .scheme-gold jest w szablonie sekcji,
+   kropki i impulsy rysuje site/_includes/diagram-gold.html. Kolory kategorii (linie, poświaty kart)
    zostają, złoto dochodzi w ramach, tekstach, kropkach, impulsach na liniach i dymkach.
    Nazwa pliku zaczyna się od „theme-”, żeby ładował się po _sections.scss.
    ========================================================= */
@@ -9,7 +8,7 @@ $dg-ease: cubic-bezier(.2, .9, .25, 1.12);
 
 .stats-how-it-works.scheme-gold {
 
-  /* ---------- kropki (canvas z diagram-lab.html) ---------- */
+  /* ---------- kropki (canvas z diagram-gold.html) ---------- */
   .scheme-gold-dots {
     position: absolute;
     top: 0;
@@ -27,10 +26,6 @@ $dg-ease: cubic-bezier(.2, .9, .25, 1.12);
 
   .scheme-mobile-diagram {
     background: transparent;
-  }
-
-  .scheme-mobile-diagram__dots {
-    display: none;
   }
 
   // mobile/tablet: kropki w samej sekcji (pełna szerokość bez 100vw, które wystawało poza przewijany
@@ -190,7 +185,7 @@ $dg-ease: cubic-bezier(.2, .9, .25, 1.12);
     animation: dg-node-ring 1.8s ease-out infinite;
   }
 
-  /* ---------- impulsy światła na liniach (klony ścieżek z diagram-lab.html) ---------- */
+  /* ---------- impulsy światła na liniach (klony ścieżek z diagram-gold.html) ---------- */
   .scheme-pulse {
     fill: none;
     stroke: $gold-100;

@@ -1,45 +1,17 @@
 {% comment %}
-  Eksperyment „złoty diagram” (tymczasowe, do decyzji). Tylko strona główna i tylko z parametrem:
-  /?diagram=zloty  (wariant złoty)   /?diagram=obecny  (obecny wygląd, z paskiem do porównania).
-  Bez parametru skrypt kończy się w pierwszej linii. Style: 3-modules/_theme-diagram-gold.scss.
-  Działa przed common.js (na stronie głównej ładowanym po „load”), więc usuwa stare kropki,
-  zanim common.js je uruchomi.
+  Złoty diagram (sekcja „Jak to działa?”): złote kropki na canvasie (cały panel na desktopie, cała
+  szerokość sekcji na mobile) i złote impulsy na liniach. Klasa .scheme-gold jest w szablonie sekcji,
+  style: 3-modules/_theme-diagram-gold.scss. Skrypt działa tylko na stronach z sekcją diagramu.
 {% endcomment %}
-{% if page.path contains "_pages/index.html" or page.path contains "_pages/home_en.html" %}
+{% assign has_gold_diagram = false %}
+{% for block in page.content_blocks %}{% if block._bookshop_name == "how-it-works-section" %}{% assign has_gold_diagram = true %}{% endif %}{% endfor %}
+{% if has_gold_diagram %}
 <script>
   (function () {
-    var params = new URLSearchParams(location.search);
-    if (!params.has('diagram')) return;
-    var gold = params.get('diagram') !== 'obecny';
-    var section = document.querySelector('.stats-how-it-works');
+    var section = document.querySelector('.stats-how-it-works.scheme-gold');
     if (!section) return;
-    var en = document.documentElement.lang === 'en';
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-    /* ---------- pasek przełącznika ---------- */
-    function urlWith(value) {
-      var sp = new URLSearchParams(location.search);
-      sp.set('diagram', value);
-      return location.pathname + '?' + sp.toString() + '#' + section.id;
-    }
-    var bar = document.createElement('nav');
-    bar.className = 'dl-bar';
-    bar.setAttribute('aria-label', en ? 'Diagram variant' : 'Wariant diagramu');
-    bar.innerHTML = '<span class="dl-bar__tag">' + (en ? 'Diagram' : 'Diagram') + '</span>' +
-      '<a href="' + urlWith('obecny') + '"' + (gold ? '' : ' aria-current="true"') + '>' + (en ? 'Current' : 'Obecny') + '</a>' +
-      '<a href="' + urlWith('zloty') + '"' + (gold ? ' aria-current="true"' : '') + '>' + (en ? 'Gold' : 'Złoty') + '</a>';
-    document.body.appendChild(bar);
-    // przełącznik PL/EN zachowuje parametry eksperymentów
-    Array.prototype.forEach.call(document.querySelectorAll('.c-header .main-nav > .logo__link, .c-header .nav-button > .logo__link'), function (a) {
-      var base = a.getAttribute('href').split('?')[0].split('#')[0];
-      a.setAttribute('href', base + location.search);
-    });
-
-    if (!gold) return;
-    section.classList.add('scheme-gold');
-    var oldDots = section.querySelector('.dotsTest');
-    if (oldDots) oldDots.remove();
 
     /* ---------- złote kropki ---------- */
     var BASE = [199, 152, 78];
@@ -220,14 +192,4 @@
     }
   })();
 </script>
-<style>
-  .dl-bar{position:fixed;left:16px;bottom:16px;z-index:2000;display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;background:rgba(12,10,6,.86);border:1px solid rgba(228,173,80,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font:600 12px/1 Poppins,system-ui,sans-serif;letter-spacing:.03em}
-  .dl-bar a{color:#d9c79f;text-decoration:none;padding:7px 12px;border-radius:999px}
-  .dl-bar a:hover{color:#fff}
-  .dl-bar a[aria-current]{background:#e4ad50;color:#120c02}
-  .dl-bar__tag{color:#8c7b58;padding:0 8px;text-transform:uppercase;font-size:10px}
-  .ol-on .dl-bar{bottom:calc(var(--ol-h,0px) + 24px)}
-  .scheme-mobile-tooltip-open .dl-bar{opacity:0;pointer-events:none}
-  @media (max-width:767px){.dl-bar{left:8px;bottom:8px}.ol-on .dl-bar{bottom:calc(var(--ol-h,0px) + 16px)}}
-</style>
 {% endif %}
