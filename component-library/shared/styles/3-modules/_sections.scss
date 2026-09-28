@@ -1637,7 +1637,6 @@ canvas {
       left: 18px;
       z-index: 30;
       margin: 0;
-      will-change: transform, opacity;
     }
 
     .scheme-mobile-diagram {
@@ -1662,24 +1661,24 @@ canvas {
       bottom: calc(var(--story-extra, 0px) + max(10px, env(safe-area-inset-bottom)));
       max-height: min(43svh, 390px);
       padding: 18px 18px 20px;
-      background: rgba(6, 6, 10, .94);
+      // pełne tło zamiast backdrop-filter i bez stałego will-change: na telefonach z gęstym ekranem
+      // (np. Galaxy S22) kilkadziesiąt warstw GPU w powiększanym diagramie powodowało znikanie elementów
+      background: rgba(6, 6, 10, .98);
       box-shadow:
         0 -18px 70px rgba(0, 0, 0, .72),
         inset 0 1px 0 rgba(255, 255, 255, .06);
-      backdrop-filter: blur(18px);
       transform: translateY(0);
       transition: none;
-      will-change: transform, opacity;
     }
 
     .scheme-mobile-tooltip__close {
       display: none;
     }
 
+    // bez stałego will-change (GSAP tworzy warstwę tylko na czas animacji)
     .scheme-mobile-node,
     .scheme-mobile-finance {
       transform-origin: center;
-      will-change: transform, opacity;
     }
 
     .scheme-mobile-story-route {

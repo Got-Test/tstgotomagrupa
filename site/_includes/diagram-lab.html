@@ -113,7 +113,7 @@
         if (!visible) return;
         if (opts.fps && t - last < 1000 / opts.fps) { raf = requestAnimationFrame(frame); return; }
         last = t;
-        if (needsBuild && !build()) { raf = requestAnimationFrame(frame); return; }
+        if (needsBuild && !build()) return; // ukryty (np. wersja mobile na desktopie): czekamy na resize
         draw(t);
         if (!reduce) raf = requestAnimationFrame(frame);
       }
@@ -153,7 +153,7 @@
       }
 
       function start() { if (!raf) raf = requestAnimationFrame(frame); }
-      this.resize = function () { needsBuild = true; if (reduce && visible) start(); };
+      this.resize = function () { needsBuild = true; if (visible) start(); };
       new ResizeObserver(this.resize).observe(opts.observe || canvas);
       new IntersectionObserver(function (e) { visible = e[0].isIntersecting; if (visible) start(); }, { rootMargin: '200px 0px' }).observe(host);
 
@@ -177,22 +177,27 @@
       });
     }
 
-    // mobile/tablet: cała szerokość ekranu, od diagramu w dół
+    // mobile/tablet: canvas w sekcji (pełna szerokość), od diagramu w dół
     var mobile = section.querySelector('.scheme-mobile');
     if (mobile) {
-      var mobileDots = new GoldDots(mobile, {
-        spacing: 18, radius: 1.1, grow: 1.5, baseAlpha: .32, spotSize: .22, hoverRadius: 90, fps: 30
+      var mobileDots = new GoldDots(section, {
+        spacing: 18, radius: 1.1, grow: 1.5, baseAlpha: .32, spotSize: .22, hoverRadius: 90, fps: 30,
+        observe: section
       });
       var mobileDiagram = mobile.querySelector('.scheme-mobile-diagram');
       var syncTop = function () {
         var storyMode = section.classList.contains('scheme-mobile-scroll-story');
-        var top = storyMode || !mobileDiagram ? 0 : Math.max(0, mobileDiagram.offsetTop - 24);
-        mobile.style.setProperty('--gd-top', top + 'px');
+        var top = 0;
+        if (!storyMode && mobileDiagram) {
+          top = Math.max(0, mobileDiagram.getBoundingClientRect().top - section.getBoundingClientRect().top - 24);
+        }
+        section.style.setProperty('--gd-top', Math.round(top) + 'px');
         mobileDots.resize();
       };
       syncTop();
       new ResizeObserver(syncTop).observe(mobile);
       new MutationObserver(syncTop).observe(section, { attributes: true, attributeFilter: ['class'] });
+      window.matchMedia('(min-width: 1024px)').addEventListener('change', syncTop);
     }
 
     /* ---------- impulsy światła na liniach ---------- */

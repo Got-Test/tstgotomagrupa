@@ -33,23 +33,26 @@ $dg-ease: cubic-bezier(.2, .9, .25, 1.12);
     display: none;
   }
 
-  // mobile: kropki na całą szerokość ekranu, od diagramu w dół (nagłówek sekcji bez kropek)
-  .scheme-mobile {
-    position: relative;
+  // mobile/tablet: kropki w samej sekcji (pełna szerokość bez 100vw, które wystawało poza przewijany
+  // w poziomie kontener i dawało pasek przewijania), od diagramu w dół
+  > .scheme-gold-dots {
+    top: var(--gd-top, 0px);
+    height: calc(100% - var(--gd-top, 0px)); // canvas nie rozciąga się przez top+bottom
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 70px, #000 calc(100% - 70px), transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 70px, #000 calc(100% - 70px), transparent 100%);
 
-    > .scheme-gold-dots {
-      top: var(--gd-top, 0px);
-      left: calc(50% - 50vw);
-      width: 100vw;
-      height: calc(100% - var(--gd-top, 0px)); // canvas nie rozciąga się przez top+bottom
-      -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 70px, #000 calc(100% - 70px), transparent 100%);
-      mask-image: linear-gradient(180deg, transparent 0, #000 70px, #000 calc(100% - 70px), transparent 100%);
+    @media (min-width: 1024px) {
+      display: none;
     }
   }
 
-  &:not(.scheme-mobile-scroll-story) .scheme-mobile > .header-card-partners {
+  @media (max-width: 1023px) {
     position: relative;
-    z-index: 1;
+
+    > .scheme-section__inner {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   &.scheme-mobile-scroll-story {
@@ -200,8 +203,11 @@ $dg-ease: cubic-bezier(.2, .9, .25, 1.12);
     animation: dg-pulse var(--pulse-d, 4.5s) linear var(--pulse-delay, 0s) infinite;
   }
 
+  // mobile: bez filtra poświaty (odciąża rysowanie powiększanego diagramu na telefonie)
   .scheme-mobile-diagram__lines .scheme-pulse {
-    stroke-width: 2;
+    stroke: #fff3cf;
+    stroke-width: 2.4;
+    filter: none;
   }
 
   /* ---------- dymki (desktop) ---------- */

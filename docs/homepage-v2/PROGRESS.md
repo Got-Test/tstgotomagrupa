@@ -305,3 +305,11 @@ Wyniki:
   - pliki logotypów są identyczne z produkcją;
   - lista i kolejność bez zmian (decyzja z commita faa7202: Enova365 i Raynet na początku, bez ERP Factory).
 
+### Diagram mobile: znikające elementy, pasek przewijania w wariancie złotym (2026-09-28)
+
+- **Znikające elementy przy przewijaniu sekwencji (Galaxy S22, obie wersje):**
+  - w trakcie sekwencji było 56 elementów z własną warstwą GPU (19,5 Mpx przy DPR 3): stałe `will-change` na 11 kartach, „Finansowaniu”, nagłówku sceny i 12 arkuszach, a arkusze dodatkowo z `backdrop-filter`, wszystko wewnątrz powiększanego diagramu. Chrome na Androidzie przy takiej liczbie warstw nie nadąża z rysowaniem i części nie rysuje;
+  - teraz jedynym stałym `will-change` jest sam diagram (GSAP tworzy warstwy tylko na czas animacji), arkusze mają pełne tło zamiast rozmycia, a impulsy wariantu złotego na mobile są bez filtra: 6,8 Mpx.
+- **Pasek przewijania (wariant złoty, wąskie okno na desktopie):** canvas kropek mobile miał `width: 100vw` wewnątrz przewijanego w poziomie kontenera diagramu. Teraz canvas jest w samej sekcji (pełna szerokość bez `100vw`).
+- Sprawdzone: brak przewijania w poziomie przy 496/820/1440 px, sekwencja desktop/mobile, układ statyczny (Chromium/WebKit/Firefox, tablet, reduced-motion), 0 px przesunięcia przy końcu sekwencji, zamykanie arkusza.
+
