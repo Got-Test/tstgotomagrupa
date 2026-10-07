@@ -1,19 +1,46 @@
 .top {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
   position: fixed;
   bottom: 40px;
   right: -100px;
-  z-index: 1;
-  width: 36px;
-  height: 36px;
+  z-index: 1100;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
   line-height: 36px;
   text-align: center;
   border-radius: 50%;
-  background-color: $background-color-alt;
-  color: $text-color;
+  border: 1px solid rgba($gold-100, .5);
+  background: linear-gradient(135deg, $gold-100, $gold-400 55%, $gold-600);
+  color: #140d02;
   cursor: pointer;
   transition: all .25s ease;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px -10px rgba($gold-400, .7);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $gold-100;
+    outline-offset: 3px;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
 
   &.is-active {
     right: 40px;
@@ -22,10 +49,10 @@
 
 @media only screen and (max-width: $tablet) {
   .top {
-    bottom: 25px;
+    bottom: max(25px, calc(env(safe-area-inset-bottom) + 16px));
 
     &.is-active {
-      right: 30px;
+      right: 20px;
     }
   }
 }

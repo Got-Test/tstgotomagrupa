@@ -10,7 +10,7 @@ evolumaHref: 'https://evoluma.pl/'
 erpFactoryHref: 'https://erpfactory.tech/'
 
 item1:  'Długofalowa współpraca, jasna komunikacja i odpowiedzialność za projekt to elementy, które klienci najczęściej wskazują w swoich opiniach.'
-item2:  '13+'
+item2:  '14+'
 item3:  'lat sukcesów na rynku'
 item4:  '300+'
 item5:  'zrealizowanych projektów'
@@ -154,71 +154,110 @@ solutions:
     description: "Warstwa integracji spinających całość oraz aplikacje internetowe i mobilne na zamówienie."
 
 slider_partners:
+  - href: "https://gotomageneral.com/enova365/"
+    logo: "/images/partners/enova365.svg"
+    logo_width: 112
+    logo_height: 32
+    alt: "Enova365"
+  - href: "https://raynetcrm.pl/"
+    logo: "/images/partners/raynet.svg"
+    logo_width: 112
+    logo_height: 28
+    alt: "RaynetCRM"
   - href: "https://karpatiabs.pl/"
     logo: "/images/partners/karpatia.svg"
+    logo_width: 127
+    logo_height: 27
     alt: "Karpatia"
   - href: "https://pragmago.pl/"
     logo: "/images/partners/pragmago.webp"
+    logo_width: 483
+    logo_height: 61
     alt: "Pragmago"
   - href: "https://evoluma.pl/"
     logo: "/images/partners/evoluma.webp"
+    logo_width: 2462
+    logo_height: 785
     alt: "Evoluma"
   - href: "https://elpartners.pl/"
     logo: "/images/partners/elpartners.webp"
+    logo_width: 110
+    logo_height: 42
     alt: "Elpartners"
-  - href: "https://raynetcrm.pl/"
-    logo: "/images/partners/raynet.svg"
-    alt: "RaynetCRM"
-  - href: "https://gotomageneral.com/enova365/"
-    logo: "/images/partners/enova365.svg"
-    alt: "Enova365"
-  - href: "https://erpfactory.tech/"
-    logo: "/images/partners/erp-factory.png"
-    alt: "ERP Factory"
   - href: "https://www.gotoma.pl/"
     logo: "/images/partners/gotoma_black.svg"
+    logo_width: 169
+    logo_height: 80
     alt: "GOTOMA"
   - href: "https://pimcore.com/"
     logo: "/images/partners/pimcore.webp"
+    logo_width: 220
+    logo_height: 50
     alt: "Pimcore"
   - href: "https://ergonode.com/"
     logo: "/images/partners/ergonode.svg"
+    logo_width: 125
+    logo_height: 28
     alt: "Ergonode"
   - href: "https://www.spiree.io/"
-    logo: "/images/partners/spiree.png"
+    logo: "/images/partners/spiree.webp"
+    logo_width: 400
+    logo_height: 91
     alt: "Spiree"
-  - href: "https://softlike.com/"
+  - href: "https://softlike.pl/"
     logo: "/images/partners/softlike.png"
+    logo_width: 142
+    logo_height: 34
     alt: "softlike"
   - href: "https://optidata.pl/"
     logo: "/images/partners/optidata.svg"
+    logo_width: 126
+    logo_height: 13
     alt: "Optidata"
   - href: "https://echallenge.pl/"
-    logo: "/images/partners/sosimplefuture.png"
+    logo: "/images/partners/sosimplefuture.webp"
+    logo_width: 400
+    logo_height: 53
     alt: "SoSimpleFuture"
   - href: "https://www.codarius.com/cennik"
     logo: "/images/partners/codarius.svg"
+    logo_width: 119
+    logo_height: 30
     alt: "Codarius"
   - href: "https://netige.pl/"
     logo: "/images/partners/netige.svg"
+    logo_width: 84
+    logo_height: 25
     alt: "Netige"
   - href: "https://atman.pl/"
     logo: "/images/partners/atman.webp"
+    logo_width: 86
+    logo_height: 34
     alt: "Atman"
   - href: "https://main.pl/"
     logo: "/images/partners/main.webp"
+    logo_width: 148
+    logo_height: 148
     alt: "Main"
   - href: "https://moonwise.pl/"
     logo: "/images/partners/moonwise.webp"
+    logo_width: 514
+    logo_height: 152
     alt: "Moonwise"
   - href: "https://astradigital.pl/"
     logo: "/images/partners/adastra.svg"
+    logo_width: 64
+    logo_height: 27
     alt: "Ad Astra"
   - href: "https://smarthubgroup.eu/"
     logo: "/images/partners/smarthub_logo_black.svg"
+    logo_width: 2000
+    logo_height: 1000
     alt: "Smarthub"
   - href: "https://www.gotomageneral.com/"
     logo: "/images/partners/gotoma-general.png"
+    logo_width: 48
+    logo_height: 40
     alt: "GOTOMA General"
 
 tooltips:
@@ -233,10 +272,14 @@ tooltips:
       partners:
         - name: "Codarius"
           logo: "/images/partners/codarius.svg"
+          logo_width: 119
+          logo_height: 30
           alt: "Codarius"
           href: "https://www.codarius.com/cennik"
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA S.H."
           href: "https://www.gotoma.pl/"
       cta:
@@ -252,11 +295,15 @@ tooltips:
       partners_label: "Partnerzy obszaru:"
       partners:
         - name: "spiree"
-          logo: "/images/partners/spiree.png"
+          logo: "/images/partners/spiree.webp"
+          logo_width: 400
+          logo_height: 91
           alt: "spiree"
           href: "https://www.spiree.io/"
         - name: "GOTOMA GENERAL"
           logo: "/images/partners/gotoma-general.png"
+          logo_width: 48
+          logo_height: 40
           alt: "GOTOMA"
           href: "https://www.gotomageneral.com/"
       cta:
@@ -273,18 +320,26 @@ tooltips:
       partners:
         - name: "Karpatia Bank Spółdzielczy"
           logo: "/images/partners/karpatia.svg"
+          logo_width: 127
+          logo_height: 27
           alt: "Karpatia"
           href: "https://karpatiabs.pl/"
         - name: "PRAGMAGO"
           logo: "/images/partners/pragmago.webp"
+          logo_width: 483
+          logo_height: 61
           alt: "PRAGMAGO"
           href: "https://pragmago.pl/"
         - name: "EVOLUMA"
           logo: "/images/partners/evoluma.webp"
+          logo_width: 2462
+          logo_height: 785
           alt: "EVOLUMA"
           href: "https://evoluma.pl/"
         - name: "elpartners"
           logo: "/images/partners/elpartners.webp"
+          logo_width: 110
+          logo_height: 42
           alt: "elpartners"
           href: "https://elpartners.pl"
       cta:
@@ -302,18 +357,26 @@ tooltips:
       partners:
         - name: "Codarius"
           logo: "/images/partners/codarius.svg"
+          logo_width: 119
+          logo_height: 30
           alt: "Codarius"
           href: "https://www.codarius.com/cennik"
         - name: "Moonwise"
           logo: "/images/partners/moonwise.webp"
+          logo_width: 514
+          logo_height: 152
           alt: "Moonwise"
           href: "https://moonwise.pl/"
         - name: "Ad Astra"
           logo: "/images/partners/adastra.svg"
+          logo_width: 64
+          logo_height: 27
           alt: "Ad Astra"
           href: "https://astradigital.pl/"
         - name: "smart hub"
           logo: "/images/partners/smarthub_logo_black.svg"
+          logo_width: 2000
+          logo_height: 1000
           alt: "SmartHub"
           href: "https://smarthubgroup.eu/"
       cta:
@@ -331,10 +394,14 @@ tooltips:
       partners:
         - name: "Raynet"
           logo: "/images/partners/raynet.svg"
+          logo_width: 112
+          logo_height: 28
           alt: "Raynet"
           href: "https://raynetcrm.pl/"
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA"
           href: "https://www.gotoma.pl/"
       cta:
@@ -352,14 +419,20 @@ tooltips:
       partners:
         - name: "Optidata"
           logo: "/images/partners/optidata.svg"
+          logo_width: 126
+          logo_height: 13
           alt: "Optidata"
           href: "https://www.optidata.pl/"
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA"
           href: "https://www.gotoma.pl/"
         - name: "so simple"
-          logo: "/images/partners/sosimplefuture.png"
+          logo: "/images/partners/sosimplefuture.webp"
+          logo_width: 400
+          logo_height: 53
           alt: "SoSimpleFuture"
           href: "https://echallenge.pl/"
     
@@ -378,10 +451,14 @@ tooltips:
       partners:
         - name: "Optidata"
           logo: "/images/partners/optidata.svg"
+          logo_width: 126
+          logo_height: 13
           alt: "Optidata"
           href: "https://www.optidata.pl/"
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA"
           href: "https://www.gotoma.pl/"
       cta:
@@ -399,14 +476,20 @@ tooltips:
       partners:
         - name: "Enova365"
           logo: "/images/partners/enova365.svg"
+          logo_width: 112
+          logo_height: 32
           alt: "Enova365"
           href: "https://gotomageneral.com/enova365/"
         - name: "ERP Factory"
           logo: "/images/partners/erp-factory.png"
+          logo_width: 75
+          logo_height: 32
           alt: "ERP Factory"
           href: "https://erpfactory.tech/"
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA"
           href: "https://www.gotoma.pl/"
       cta:
@@ -424,18 +507,26 @@ tooltips:
       partners:
         - name: "Netige"
           logo: "/images/partners/netige.svg"
+          logo_width: 84
+          logo_height: 25
           alt: "Netige"
           href: "https://www.netige.pl/"
         - name: "Atman"
           logo: "/images/partners/atman.webp"
+          logo_width: 86
+          logo_height: 34
           alt: "Atman"
           href: "https://atman.pl/"
         - name: "Main"
           logo: "/images/partners/main.webp"
+          logo_width: 148
+          logo_height: 148
           alt: "Main"
           href: "https://main.pl/"
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA"
           href: "https://www.gotoma.pl/"
       cta:
@@ -453,6 +544,8 @@ tooltips:
       partners:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA S.H."
           href: "https://www.gotoma.pl/"
       cta:
@@ -470,14 +563,20 @@ tooltips:
       partners:
         - name: "Ergonode"
           logo: "/images/partners/ergonode.svg"
+          logo_width: 125
+          logo_height: 28
           alt: "Ergonode"
           href: "https://www.ergonode.com/pl"
         - name: "Pimcore"
           logo: "/images/partners/pimcore.webp"
+          logo_width: 220
+          logo_height: 50
           alt: "Pimcore"
           href: "https://pimcore.com"
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA"
           href: "https://www.gotoma.pl/"
       cta:
@@ -495,9 +594,14 @@ tooltips:
       partners:
         - name: "GOTOMA S.H."
           logo: "/images/partners/gotoma_black.svg"
+          logo_width: 169
+          logo_height: 80
           alt: "GOTOMA S.H."
+          href: "https://www.gotoma.pl/"
         - name: "softlike"
           logo: "/images/partners/softlike.png"
+          logo_width: 142
+          logo_height: 34
           alt: "softlike"
           href: "https://softlike.pl/"
       cta:

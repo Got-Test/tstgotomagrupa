@@ -1,0 +1,247 @@
+{% comment %}
+  Baner zgód na pliki cookie, ujednolicony z gotoma.pl i gotomageneral.pl (tam: Complianz na WordPressie).
+  Ten sam układ i teksty: biały panel u dołu, 3 kategorie (Niezbędne, Analityczne, Pomiar, marketing
+  i personalizacja reklam), przyciski Zapisz ustawienia / Odrzuć / Zaakceptuj wszystkie. Akcent złoty jak na gotoma.pl.
+
+  Zgoda: localStorage "gotoma_consent" (365 dni). Decyzje ze starego banera (CookieDialog, klucz
+  "cookiedialog_consent") są przejmowane, więc nikt nie jest pytany drugi raz.
+  Google: Consent Mode v2, domyślnie wszystko "denied"; GA4 ładuje się dopiero po zgodzie na analitykę.
+  Ponowne otwarcie: każdy link do #ustawienia-cookies lub #cookie-settings (np. w stopce) albo window.GotomaConsent.open().
+
+  Baner jest w HTML od początku i pokazuje go skrypt zaraz pod nim (bez czekania na load), żeby nie stał się
+  późnym elementem LCP na telefonie.
+{% endcomment %}
+{% if page.lang == 'en' %}
+  {% assign ck_title = "We respect your privacy" %}
+  {% assign ck_message = "To provide the best experience, we use technologies such as cookies to store and/or access information about your device. Consenting to these technologies will allow us to process data such as browsing behaviour or unique identifiers on this site. Not consenting or withdrawing consent may adversely affect certain features and functions." %}
+  {% assign ck_necessary = "Necessary" %}
+  {% assign ck_necessary_desc = "Required for the website to work and stay secure. They cannot be switched off." %}
+  {% assign ck_always = "Always active" %}
+  {% assign ck_analytics = "Analytics" %}
+  {% assign ck_analytics_desc = "They help us measure traffic and improve the website (Google Analytics 4)." %}
+  {% assign ck_marketing = "Measurement, marketing and ad personalisation" %}
+  {% assign ck_marketing_desc = "They let us measure campaign effectiveness and conversions, and enable remarketing and ads tailored to your interests (e.g. Google Ads)." %}
+  {% assign ck_save = "Save settings" %}
+  {% assign ck_deny = "Reject" %}
+  {% assign ck_accept = "Accept all" %}
+  {% assign ck_privacy = "Cookies & Privacy Policy" %}
+  {% assign ck_privacy_url = "/en/privacy/" %}
+  {% assign ck_more = "More information" %}
+{% else %}
+  {% assign ck_title = "Szanujemy Twoją prywatność" %}
+  {% assign ck_message = "Aby zapewnić jak najlepsze wrażenia, korzystamy z technologii, takich jak pliki cookie, do przechowywania i/lub uzyskiwania dostępu do informacji o urządzeniu. Zgoda na te technologie pozwoli nam przetwarzać dane, takie jak zachowanie podczas przeglądania lub unikalne identyfikatory na tej stronie. Brak wyrażenia zgody lub wycofanie zgody może niekorzystnie wpłynąć na niektóre cechy i funkcje." %}
+  {% assign ck_necessary = "Niezbędne" %}
+  {% assign ck_necessary_desc = "Wymagane do działania strony i bezpieczeństwa. Nie możesz ich wyłączyć." %}
+  {% assign ck_always = "Zawsze aktywne" %}
+  {% assign ck_analytics = "Analityczne" %}
+  {% assign ck_analytics_desc = "Pomagają mierzyć ruch i ulepszać serwis (Google Analytics 4)." %}
+  {% assign ck_marketing = "Pomiar, marketing i personalizacja reklam" %}
+  {% assign ck_marketing_desc = "Pozwalają mierzyć skuteczność kampanii i konwersje, a także umożliwiają remarketing oraz wyświetlanie reklam dopasowanych do Twoich zainteresowań (np. Google Ads)." %}
+  {% assign ck_save = "Zapisz ustawienia" %}
+  {% assign ck_deny = "Odrzuć" %}
+  {% assign ck_accept = "Zaakceptuj wszystkie" %}
+  {% assign ck_privacy = "Ciasteczka & Polityka Prywatności" %}
+  {% assign ck_privacy_url = "/privacy/" %}
+  {% assign ck_more = "Więcej informacji" %}
+{% endif %}
+{% capture ck_chevron %}<svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224 416c-8.19 0-16.38-3.13-22.62-9.38l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>{% endcapture %}
+<div class="ck" id="ck-banner" role="dialog" aria-modal="false" aria-labelledby="ck-title" aria-describedby="ck-message" data-nosnippet hidden>
+  <div class="ck__head">
+    <span class="ck__shield" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+    <h2 class="ck__title" id="ck-title">{{ ck_title }}</h2>
+  </div>
+  <p class="ck__message" id="ck-message">{{ ck_message }} <a class="ck__link" href="{{ ck_privacy_url }}">{{ ck_privacy }}</a></p>
+
+  <div class="ck__cats">
+    <div class="ck__cat">
+      <div class="ck__cat-head">
+        <span class="ck__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+        <span class="ck__cat-title" id="ck-t-necessary">{{ ck_necessary }}</span>
+        <span class="ck__always">{{ ck_always }}</span>
+        <button class="ck__more" type="button" aria-expanded="false" aria-controls="ck-d-necessary" aria-label="{{ ck_more }}: {{ ck_necessary }}">{{ ck_chevron }}</button>
+      </div>
+      <p class="ck__desc" id="ck-d-necessary" hidden>{{ ck_necessary_desc }}</p>
+    </div>
+    <div class="ck__cat">
+      <div class="ck__cat-head">
+        <span class="ck__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+        <label class="ck__cat-title" for="ck-analytics">{{ ck_analytics }}</label>
+        <span class="ck__switch"><input type="checkbox" id="ck-analytics" role="switch" data-ck="analytics"><span aria-hidden="true"></span></span>
+        <button class="ck__more" type="button" aria-expanded="false" aria-controls="ck-d-analytics" aria-label="{{ ck_more }}: {{ ck_analytics }}">{{ ck_chevron }}</button>
+      </div>
+      <p class="ck__desc" id="ck-d-analytics" hidden>{{ ck_analytics_desc }}</p>
+    </div>
+    <div class="ck__cat">
+      <div class="ck__cat-head">
+        <span class="ck__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+        <label class="ck__cat-title" for="ck-marketing">{{ ck_marketing }}</label>
+        <span class="ck__switch"><input type="checkbox" id="ck-marketing" role="switch" data-ck="marketing"><span aria-hidden="true"></span></span>
+        <button class="ck__more" type="button" aria-expanded="false" aria-controls="ck-d-marketing" aria-label="{{ ck_more }}: {{ ck_marketing }}">{{ ck_chevron }}</button>
+      </div>
+      <p class="ck__desc" id="ck-d-marketing" hidden>{{ ck_marketing_desc }}</p>
+    </div>
+  </div>
+
+  <div class="ck__buttons">
+    <button class="ck__btn ck__btn--save" type="button" data-ck-action="save">{{ ck_save }}</button>
+    <button class="ck__btn ck__btn--deny" type="button" data-ck-action="deny">{{ ck_deny }}</button>
+    <button class="ck__btn ck__btn--accept" type="button" data-ck-action="accept">{{ ck_accept }}</button>
+  </div>
+</div>
+<style>
+  .ck{position:fixed;left:0;right:0;bottom:0;z-index:10000;box-sizing:border-box;max-height:92vh;max-height:92svh;overflow-y:auto;overscroll-behavior:contain;
+    padding:32px 32px 36px;background:#fff;color:#111;border-radius:16px 16px 0 0;box-shadow:0 -18px 60px rgba(0,0,0,.35);
+    font-family:Poppins,system-ui,sans-serif;text-align:left;animation:ck-in .45s cubic-bezier(.2,.8,.2,1) both}
+  .ck[hidden]{display:none}
+  .ck *,.ck *::before,.ck *::after{box-sizing:border-box}
+  @keyframes ck-in{from{transform:translateY(24px);opacity:0}}
+  .ck__head{display:flex;align-items:center;gap:16px;margin:0 0 26px}
+  .ck__shield{display:inline-flex;align-items:center;justify-content:center;flex:none;width:40px;height:40px;border-radius:50%;background:#000;color:#fff}
+  .ck__shield svg{width:20px;height:20px}
+  .ck__title{margin:0;color:#111;font-size:24px;line-height:1.2;font-weight:600;letter-spacing:0}
+  .ck__message{margin:0 0 34px;color:#1c1c1c;font-size:15px;line-height:1.45;font-weight:400}
+  .ck__link{color:#9a7428;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+  .ck__link:hover{color:#6f5114}
+  .ck__cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start;margin:0 0 26px}
+  .ck__cat{border:1px solid #d6d6d6;border-radius:14px;padding:14px 16px 14px 18px;background:#fff}
+  .ck__cat-head{display:flex;align-items:center;gap:12px;min-height:44px}
+  .ck__icon{display:inline-flex;align-items:center;justify-content:center;flex:none;width:32px;height:32px;border-radius:50%;background:#000;color:#fff}
+  .ck__icon svg{width:16px;height:16px}
+  .ck__cat-title{flex:1;margin:0;color:#111;font-size:15px;line-height:1.35;font-weight:500;cursor:pointer}
+  .ck__always{flex:none;padding:7px 14px;border:1px solid #e3be4f;border-radius:999px;color:#b8902c;font-size:12.5px;line-height:1;white-space:nowrap}
+  .ck__switch{position:relative;flex:none;width:48px;height:26px}
+  .ck__switch input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;z-index:1}
+  .ck__switch span{position:absolute;inset:0;border-radius:999px;background:#d9d9d9;transition:background .2s ease}
+  .ck__switch span::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s ease}
+  .ck__switch input:checked + span{background:linear-gradient(90deg,#e9d66f,#c39a4c)}
+  .ck__switch input:checked + span::after{transform:translateX(22px)}
+  .ck__switch input:focus-visible + span{outline:2px solid #b8902c;outline-offset:2px}
+  .ck__more{display:inline-flex;align-items:center;justify-content:center;flex:none;width:32px;height:32px;margin:0 -6px 0 0;padding:0;border:0;border-radius:8px;background:none;color:#111;cursor:pointer}
+  .ck__more svg{width:18px;height:18px;transition:transform .25s ease}
+  .ck__more[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .ck__more:focus-visible{outline:2px solid #b8902c;outline-offset:1px}
+  .ck__desc{margin:10px 0 2px 44px;color:#444;font-size:13px;line-height:1.5}
+  .ck__buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .ck__btn{min-height:64px;padding:12px 18px;border-radius:6px;font:500 15px/1.2 Poppins,system-ui,sans-serif;color:#111;cursor:pointer;transition:filter .2s ease,border-color .2s ease,background .2s ease}
+  .ck__btn--save{background:#fff;border:1px solid #e3be4f}
+  .ck__btn--deny{background:#fff;border:1px solid #d6d6d6}
+  .ck__btn--accept{background:linear-gradient(90deg,#efe28b 0%,#d9bd6a 45%,#b98e48 100%);border:1px solid transparent}
+  .ck__btn:hover{filter:brightness(.97)}
+  .ck__btn--save:hover{border-color:#c9a13a}
+  .ck__btn--deny:hover{border-color:#a9a9a9}
+  .ck__btn:focus-visible{outline:2px solid #111;outline-offset:2px}
+  @media (max-width:1023px){
+    .ck{padding:24px 18px 20px}
+    .ck__head{gap:14px;margin-bottom:18px}
+    .ck__shield{width:38px;height:38px}
+    .ck__title{font-size:17px}
+    .ck__message{font-size:14px;margin-bottom:22px}
+    .ck__cats{grid-template-columns:1fr;gap:12px;margin-bottom:18px}
+    .ck__cat-title{font-size:14px}
+    .ck__buttons{grid-template-columns:1fr;gap:10px}
+    .ck__btn{min-height:44px;font-size:14px}
+  }
+  @media (prefers-reduced-motion:reduce){.ck{animation:none}.ck__switch span,.ck__switch span::after,.ck__more svg{transition:none}}
+</style>
+<script>
+  (function () {
+    var GA_ID = 'G-NRBTRG0DB8';
+    var KEY = 'gotoma_consent', OLD_KEY = 'cookiedialog_consent', VERSION = 1, DAYS = 365;
+    var banner = document.getElementById('ck-banner');
+
+    // Google Consent Mode v2: zanim cokolwiek się załaduje, wszystko odrzucone
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
+
+    function fresh(ts) { return typeof ts === 'number' && Date.now() - ts < DAYS * 864e5; }
+    function store(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} }
+    function read() {
+      try {
+        var c = JSON.parse(localStorage.getItem(KEY));
+        if (c && c.v === VERSION && fresh(c.ts)) return c;
+      } catch (e) {}
+      // przejęcie decyzji ze starego banera (CookieDialog)
+      try {
+        var o = JSON.parse(localStorage.getItem(OLD_KEY));
+        if (o && o.categories && fresh(o.timestamp)) {
+          var m = { v: VERSION, ts: o.timestamp, analytics: !!o.categories.analytics, marketing: !!o.categories.marketing };
+          store(m);
+          localStorage.removeItem(OLD_KEY);
+          return m;
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    var gaLoaded = false;
+    function loadAnalytics() {
+      if (gaLoaded) return;
+      gaLoaded = true;
+      var start = function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: true, cookie_flags: 'SameSite=Strict;Secure' });
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 3000 }); else setTimeout(start, 1500);
+    }
+    function apply(c) {
+      gtag('consent', 'update', {
+        analytics_storage: c.analytics ? 'granted' : 'denied',
+        ad_storage: c.marketing ? 'granted' : 'denied',
+        ad_user_data: c.marketing ? 'granted' : 'denied',
+        ad_personalization: c.marketing ? 'granted' : 'denied'
+      });
+      if (c.analytics) loadAnalytics();
+    }
+
+    var toggles = banner.querySelectorAll('[data-ck]');
+    function setToggles(c) { toggles.forEach(function (t) { t.checked = !!(c && c[t.dataset.ck]); }); }
+    function open() {
+      setToggles(read());
+      banner.hidden = false;
+    }
+    function close() { banner.hidden = true; }
+    function decide(analytics, marketing) {
+      var c = { v: VERSION, ts: Date.now(), analytics: analytics, marketing: marketing };
+      store(c);
+      apply(c);
+      close();
+    }
+
+    banner.addEventListener('click', function (e) {
+      var more = e.target.closest('.ck__more');
+      if (more) {
+        var desc = document.getElementById(more.getAttribute('aria-controls'));
+        var expanded = more.getAttribute('aria-expanded') === 'true';
+        more.setAttribute('aria-expanded', String(!expanded));
+        desc.hidden = expanded;
+        return;
+      }
+      var action = e.target.closest('[data-ck-action]');
+      if (!action) return;
+      var a = action.dataset.ckAction;
+      if (a === 'accept') decide(true, true);
+      else if (a === 'deny') decide(false, false);
+      else decide(document.getElementById('ck-analytics').checked, document.getElementById('ck-marketing').checked);
+    });
+    // faza przechwytywania: przed skryptem przejść między stronami (inaczej link z "/" na podstronie przenosił na główną)
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('a[href$="#ustawienia-cookies"], a[href$="#cookie-settings"]');
+      if (!link) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      open();
+      var first = banner.querySelector('.ck__btn--save');
+      if (first) first.focus();
+    }, true);
+
+    window.GotomaConsent = { open: open, get: read };
+
+    var existing = read();
+    if (existing) apply(existing); else open();
+  })();
+</script>

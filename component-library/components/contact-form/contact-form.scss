@@ -6,9 +6,22 @@
 	}
 
 	&__form-box {
-		max-width: 580px;
-		margin: 0 auto;
-		padding-top: 140px;
+		position: relative;
+		max-width: 920px;
+		margin: 0 auto 100px;
+		padding: 64px 56px 40px;
+		border: 1px solid transparent;
+		border-radius: 28px;
+		background:
+			radial-gradient(90% 60% at 50% 0%, rgba($gold-600, .18), transparent 70%) padding-box,
+			linear-gradient(180deg, #110d08, #070605) padding-box,
+			linear-gradient(160deg, rgba($gold-100, .7), rgba($gold-600, .18) 40%, rgba($gold-400, .08) 65%, rgba($gold-200, .45)) border-box;
+		box-shadow: 0 50px 110px -70px rgba($gold-400, .6);
+
+		@media only screen and (max-width: $mobile) {
+			padding: 40px 20px 20px;
+			border-radius: 20px;
+		}
 	}
 
 	&__contact-head {
@@ -19,12 +32,26 @@
 	&__contact-title {
 		display: inline-block;
 		margin-bottom: 20px;
-		font-size: 58px;
+		font-size: clamp(36px, 4vw, 52px);
+		font-weight: 600;
+		letter-spacing: -.02em;
+		background: linear-gradient(100deg, $white 20%, $gold-100 60%, $gold-400);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+
+		@media only screen and (max-width: $mobile) {
+			font-size: 36px;
+		}
 	}
 
 	&__contact-description {
-		font-size: 20px;
-		font-weight: 600;
+		max-width: 620px;
+		margin: 0 auto;
+		color: rgba($white, .76);
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.7;
 
 		@media only screen and (max-width: $mobile) {
 			font-size: 16px;
@@ -42,6 +69,309 @@
 
 		&--button {
 			text-align: center;
+
+			// „Wyślij” nieaktywny, dopóki nie ma zgody; podpowiedź widoczna tylko wtedy
+			.c-button:disabled {
+				opacity: .45;
+				cursor: not-allowed;
+				filter: saturate(.5);
+				box-shadow: none;
+				transform: none;
+			}
+		}
+	}
+
+	&__submit-hint {
+		display: none;
+		margin: 12px 0 0;
+		font-size: 14px;
+		line-height: 1.4;
+		opacity: .75;
+
+		.c-button:disabled + & {
+			display: block;
+		}
+	}
+
+	&__form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+
+		@media only screen and (max-width: $mobile) {
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
+	}
+
+	&__form-label {
+		display: block;
+		margin-bottom: 10px;
+		color: rgba($white, .9);
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: .02em;
+	}
+
+	legend#{&}__form-label {
+		color: $gold-200;
+	}
+
+	// checkboxy w stylu formularza: ciemny kwadrat ze złotą obwódką, zaznaczony złoty z ciemnym ptaszkiem
+	input[type="checkbox"] {
+		flex: none;
+		width: 18px;
+		height: 18px;
+		margin: 0; // wyrównanie do pierwszej linii tekstu: margin-top w &__choices / &__consent
+		border: 1px solid rgba($gold-400, .45);
+		border-radius: 5px;
+		background: rgba(255, 255, 255, .03) center / 12px 12px no-repeat;
+		-webkit-appearance: none;
+		appearance: none;
+		cursor: pointer;
+		transition: background-color .2s, border-color .2s, box-shadow .2s;
+
+		&:hover {
+			border-color: $gold-400;
+		}
+
+		&:checked {
+			border-color: $gold-400;
+			background-color: $gold-400;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.6l4.6-5' fill='none' stroke='%23140d02' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		}
+
+		&:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 4px rgba($gold-400, .22);
+		}
+	}
+
+	&__consent a {
+		color: $gold-200;
+		border-bottom: 1px solid rgba($gold-400, .4);
+	}
+
+	&__form-hint {
+		display: block;
+		margin-top: 8px;
+		font-size: 14px;
+		color: rgba($text-color, .6);
+	}
+
+	&__fieldset {
+		padding: 0;
+		border: 0;
+	}
+
+	&__choices {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px 20px;
+
+		label {
+			display: flex;
+			align-items: flex-start;
+			gap: 8px;
+			font-size: 15px;
+		}
+
+		input[type="checkbox"] {
+			margin-top: 3px;
+		}
+
+		@media only screen and (max-width: $mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__consent {
+		font-size: 15px;
+
+		label {
+			display: flex;
+			align-items: flex-start;
+			gap: 10px;
+		}
+
+		input[type="checkbox"] {
+			margin-top: 3px;
+		}
+	}
+
+	&__honeypot {
+		position: absolute;
+		left: -9999px;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	// komunikat po wysłaniu (sukces / błąd / w toku)
+	&__status {
+		max-width: 620px;
+		margin: 8px auto 0;
+		padding: 14px 18px;
+		border: 1px solid rgba($gold-400, .35);
+		border-radius: 14px;
+		color: rgba($white, .88);
+		font-size: 15px;
+		line-height: 1.6;
+		text-align: center;
+		background: rgba($gold-600, .08);
+
+		a {
+			color: $gold-200;
+			border-bottom: 1px solid rgba($gold-400, .4);
+		}
+
+		&--success {
+			border-color: rgba(120, 200, 140, .55);
+			background: rgba(60, 160, 90, .12);
+		}
+
+		&--error {
+			border-color: rgba(230, 110, 90, .6);
+			background: rgba(200, 70, 50, .12);
+		}
+	}
+
+	// pole wyboru (zamknięte): złota strzałka zamiast systemowej, ta sama wysokość co pozostałe pola
+	select#{&}__form-input,
+	#{&}__form-input#{&}__select-button {
+		padding-right: 54px;
+		line-height: 1.25;
+		text-align: left;
+		-webkit-appearance: none;
+		appearance: none;
+		cursor: pointer;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23e4ad50' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		background-position: right 20px center;
+		background-repeat: no-repeat;
+		background-size: 16px 16px;
+		resize: none;
+
+		&[aria-expanded="true"] {
+			border-color: $gold-400;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 10 4-4 4 4' fill='none' stroke='%23ffe8a4' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		}
+	}
+
+	// własna lista wyboru (desktop); natywny <select> zostaje pod spodem i trzyma wartość
+	&__select {
+		position: relative;
+
+		> select {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+
+	&__select-button {
+		display: block;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		&.is-placeholder {
+			color: rgba($white, .55);
+		}
+	}
+
+	&__select-list {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 0;
+		right: 0;
+		z-index: 20;
+		max-height: 280px;
+		margin: 0;
+		padding: 6px;
+		overflow-y: auto;
+		list-style: none;
+		border: 1px solid rgba($gold-400, .35);
+		border-radius: 14px;
+		outline: none;
+		background: rgba(16, 12, 8, .97);
+		-webkit-backdrop-filter: blur(14px);
+		backdrop-filter: blur(14px);
+		box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .9), 0 0 0 1px rgba(0, 0, 0, .4);
+
+		&[hidden] {
+			display: none;
+		}
+	}
+
+	&__select-option {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin: 0;
+		padding: 12px 14px;
+		border-radius: 9px;
+		color: rgba($white, .86);
+		font-size: 15px;
+		font-weight: 500;
+		line-height: 1.3;
+		cursor: pointer;
+
+		&.is-placeholder {
+			color: rgba($white, .5);
+		}
+
+		&.is-active {
+			color: $gold-100;
+			background: rgba($gold-400, .14);
+		}
+
+		&[aria-selected="true"]::after {
+			content: "";
+			flex: none;
+			width: 14px;
+			height: 14px;
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.6l4.6-5' fill='none' stroke='%23e4ad50' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+		}
+	}
+
+	&__form-input[aria-invalid="true"] {
+		border-color: rgba(230, 110, 90, .85) !important;
+		box-shadow: 0 0 0 4px rgba(230, 110, 90, .12);
+	}
+
+	input[type="checkbox"][aria-invalid="true"] {
+		border-color: rgba(240, 130, 110, .95);
+		box-shadow: 0 0 0 4px rgba(230, 110, 90, .14);
+	}
+
+	// komunikat walidacji pod polem (w języku strony, zamiast dymka przeglądarki)
+	&__error {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		margin: 8px 0 0;
+		color: #f4a393;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.45;
+		animation: c-contact-form-error .25s ease-out;
+
+		&::before {
+			content: "!";
+			display: inline-grid;
+			flex: none;
+			place-items: center;
+			width: 17px;
+			height: 17px;
+			margin-top: 1px;
+			border: 1px solid rgba(240, 130, 110, .75);
+			border-radius: 50%;
+			font-size: 11px;
+			font-weight: 700;
+			line-height: 1;
 		}
 	}
 
@@ -50,22 +380,56 @@
 		padding: 22px;
 		font-size: 16px;
 		font-weight: 500;
-		border: 1px solid $border-color;
-		border-radius: 8px;
+		border: 1px solid rgba($white, .12);
+		border-radius: 12px;
 		outline: none;
 		transition: $global-transition;
 		resize: vertical;
-		color: $text-color;
-		background: $background-color-alt;
+		color: $white;
+		background: rgba(255, 255, 255, .03);
+
+		&:hover {
+			border-color: rgba($gold-400, .35);
+		}
+
+		option {
+			color: $white;
+			background: #14100a;
+		}
+
+		// liczba osób: bez systemowych strzałek
+		&[type="number"] {
+			-moz-appearance: textfield;
+			appearance: textfield;
+
+			&::-webkit-inner-spin-button,
+			&::-webkit-outer-spin-button {
+				margin: 0;
+				-webkit-appearance: none;
+			}
+		}
 
 		&::placeholder {
 			font-weight: 500;
-			color: rgba($text-color, 0.3);
+			color: rgba($white, 0.45);
 		}
 
 		&:focus {
-			border-color: $primary-color;
-			box-shadow: 0px 4px 10px rgba($primary-color, 0.25);
+			border-color: $gold-400;
+			box-shadow: 0 0 0 4px rgba($gold-400, .12), 0 10px 30px -12px rgba($gold-400, .45);
 		}
+	}
+}
+
+@keyframes c-contact-form-error {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.c-contact-form__error {
+		animation: none;
 	}
 }

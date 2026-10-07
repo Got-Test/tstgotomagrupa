@@ -1,66 +1,75 @@
 ---
-title: Grupa GOTOMA - Polityka Prywatności
+title: Polityka cookies | Grupa GOTOMA
+description: Jakich plików cookie i podobnych technologii używa serwis Grupy GOTOMA, w jakim celu i jak zmienić lub wycofać zgodę.
 layout: default
-permalink: /privacy
+permalink: /privacy/
 lang: pl
-
+translation_url: /en/privacy/
 ---
-<style>
-    .cookies-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.7;
-  color: #fff;
-}
+{% comment %}
+  Treść zgodna z banerem zgód (site/_includes/consent-banner.html): te same kategorie i narzędzia.
+  Przy dodaniu nowego narzędzia (np. Google Ads, Clarity) trzeba uzupełnić tabelę i opis kategorii w banerze.
+{% endcomment %}
+{% include cookie-policy-style.html %}
+<article class="cookies-page">
+  <a class="cookies-page__back" href="/">← Powrót do strony głównej</a>
 
-.cookies-page h1 {
-  font-size: 36px;
-  margin-bottom: 30px;
-  font-weight: 700;
-}
+  <p class="cookies-page__eyebrow">Grupa GOTOMA</p>
+  <h1>Polityka cookies</h1>
+  <p class="cookies-page__updated">Ostatnia aktualizacja: 7 października 2026 r.</p>
 
-.cookies-page h2 {
-  font-size: 24px;
-  margin-top: 40px;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
+  <p>Ta polityka wyjaśnia, jakich plików cookie i podobnych technologii używa serwis Grupy GOTOMA, w jakim celu to robimy i jak możesz zmienić swoje wybory.</p>
+  <p>Pliki cookie to niewielkie pliki tekstowe zapisywane na Twoim urządzeniu przez odwiedzaną stronę. Podobnie działa pamięć przeglądarki (localStorage i sessionStorage), dlatego w tej polityce opisujemy je razem.</p>
 
-.cookies-page p {
-  margin-bottom: 16px;
-  color: #fff;
-}
+  <h2>Twoja zgoda</h2>
+  <p>Przy pierwszej wizycie wyświetlamy baner, w którym decydujesz, na co się zgadzasz. Do czasu Twojej decyzji używamy wyłącznie technologii niezbędnych do działania strony. Narzędzia analityczne i marketingowe uruchamiamy tylko wtedy, gdy wyrazisz na nie zgodę.</p>
+  <p>W banerze możesz zaakceptować wszystkie kategorie, odrzucić wszystkie poza niezbędnymi albo wybrać je pojedynczo. Swój wybór możesz w każdej chwili zmienić lub wycofać przez link „Ustawienia cookies” w stopce strony albo tutaj:</p>
+  <p><a class="cookies-page__button" href="#ustawienia-cookies">Zmień ustawienia cookies</a></p>
+  <p>Wycofanie zgody nie wpływa na zgodność z prawem przetwarzania, które odbyło się przed jej wycofaniem. Twój wybór zapamiętujemy na 12 miesięcy, po czym zapytamy ponownie.</p>
 
-.cookies-page ul {
-  margin: 15px 0;
-  padding-left: 20px;
-}
+  <h2>Kategorie i narzędzia</h2>
 
-.cookies-page li {
-  margin-bottom: 8px;
-}
+  <h3>Niezbędne <span class="cookies-page__tag">zawsze aktywne</span></h3>
+  <p>Wymagane do działania strony i bezpieczeństwa. Nie wymagają zgody i nie można ich wyłączyć w banerze.</p>
+  <div class="cookies-page__table">
+    <table>
+      <thead><tr><th>Nazwa</th><th>Dostawca</th><th>Cel</th><th>Okres przechowywania</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Nazwa"><code>gotoma_consent</code><br><small>pamięć przeglądarki</small></td><td data-label="Dostawca">Grupa GOTOMA</td><td data-label="Cel">Zapamiętanie Twojego wyboru w banerze zgód.</td><td data-label="Okres przechowywania">12 miesięcy</td></tr>
+        <tr><td data-label="Nazwa"><code>gotoma-pt</code><br><small>pamięć sesji</small></td><td data-label="Dostawca">Grupa GOTOMA</td><td data-label="Cel">Płynne przejście między podstronami serwisu.</td><td data-label="Okres przechowywania">Do zamknięcia karty przeglądarki</td></tr>
+        <tr><td data-label="Nazwa"><code>_GRECAPTCHA</code><br><small>cookie</small></td><td data-label="Dostawca">Google (reCAPTCHA)</td><td data-label="Cel">Ochrona formularza Konsultacji 360° przed spamem i nadużyciami. Ładowany dopiero, gdy zaczniesz wypełniać formularz.</td><td data-label="Okres przechowywania">6 miesięcy</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-.cookies-page a {
-  color: #faf08e;
-  text-decoration: none;
-}
+  <h3>Analityczne</h3>
+  <p>Pomagają nam mierzyć ruch i ulepszać serwis. Używamy ich tylko po wyrażeniu zgody. Adresy IP są anonimizowane.</p>
+  <div class="cookies-page__table">
+    <table>
+      <thead><tr><th>Nazwa</th><th>Dostawca</th><th>Cel</th><th>Okres przechowywania</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Nazwa"><code>_ga</code><br><small>cookie</small></td><td data-label="Dostawca">Google (Google Analytics 4)</td><td data-label="Cel">Rozróżnianie odwiedzających na potrzeby statystyk.</td><td data-label="Okres przechowywania">2 lata</td></tr>
+        <tr><td data-label="Nazwa"><code>_ga_*</code><br><small>cookie</small></td><td data-label="Dostawca">Google (Google Analytics 4)</td><td data-label="Cel">Zachowanie stanu sesji na potrzeby statystyk.</td><td data-label="Okres przechowywania">2 lata</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-.cookies-page a:hover {
-  text-decoration: underline;
-}
-</style>
-<div class="cookies-page"> <div class="section-heading text-center">
-          <a href="/">Powrót do strony głównej</a> 
-          <h1>GRUPA GOTOMA</h1>
-          <h2 class="fw-3 mt-2 mt-sm-3">MECHANIZM COOKIES NA STRONACH INTERNETOWYCH GOTOMA</h2>
-          <p class="mt-5">Dla Państwa wygody GRUPA GOTOMA dostarcza serwis, który używa plików cookies i podobnych technologii m.in. po to, by dostosować serwis do potrzeb użytkowników, i w celach statystycznych. Cookies to niewielkie pliki tekstowe wysyłane przez serwis internetowy, który odwiedza internauta, do urządzenia internauty.</p>
-<p class="mt-5">W przeglądarce internetowej można zmienić ustawienia dotyczące cookies. Brak zmiany tych ustawień oznacza akceptację dla stosowanych tu cookies.</p>
-<p class="mt-5">Serwis GRUPA GOTOMA stosuje cookies wydajnościowe, czyli służące do zbierania informacji o sposobie korzystania ze strony, by lepiej działała w postaci: 1. Cookies google-analytics.com – statystyki dla witryny www.gotoma.pl. 2. Cache, w celu optymalizacji wczytywania strony. 3. Etag, w celu optymalizacji wczytywania strony. 4. Na oznaczenie, że zaakceptowano politykę dotyczącą<br>
-cookies.</p>
-<p class="mt-5">Poziom ochrony przed cookies można ustawić w swojej przeglądarce internetowej – aż do całkowitego blokowania plików cookies. Zwiększa to poziom bezpieczeństwa i ochrony danych, ale może także uniemożliwiać niektóre funkcje, np. zalogowanie się na konto pocztowe.</p>
-<p class="mt-5">Jak zmienia się ustawienia w najbardziej popularnych wyszukiwarkach?</p>
-<p class="mt-3"><a href="https://support.microsoft.com/pl-pl/help/17442/windows-internet-explorer-delete-manage-cookies">Internet Explorer</a> | <a href="http://support.google.com/chrome/bin/answer.py?hl=pl&amp;answer=95647">Chrome</a> | <a href="http://support.apple.com/kb/PH5042">Safari</a> | <a href="http://support.mozilla.org/pl/kb/W%C5%82%C4%85czanie%20i%20wy%C5%82%C4%85czanie%20obs%C5%82ugi%20ciasteczek">Firefox</a> | <a href="http://support.google.com/chrome/bin/answer.py?hl=pl&amp;answer=95647">Android</a> | <a href="http://support.apple.com/kb/HT1677?viewlocale=pl_PL">Safari (iOS)</a>
-        </p></div>
-        </div>
+  <h3>Pomiar, marketing i personalizacja reklam</h3>
+  <p>Ta kategoria obejmuje narzędzia do mierzenia skuteczności kampanii, remarketingu i wyświetlania reklam dopasowanych do zainteresowań. Obecnie serwis nie używa takich narzędzi. Twój wybór w tej kategorii przekazujemy do Google w ramach mechanizmu zgody (Google Consent Mode) i będzie on obowiązywał, jeśli takie narzędzia zostaną dodane. Wtedy uzupełnimy też tę politykę.</p>
+
+  <h2>Przekazywanie danych poza Europejski Obszar Gospodarczy</h2>
+  <p>Narzędzia Google mogą przetwarzać dane także poza EOG, w tym w Stanach Zjednoczonych. Google LLC uczestniczy w programie EU-U.S. Data Privacy Framework, na podstawie którego Komisja Europejska uznała odpowiedni stopień ochrony danych. Więcej informacji znajdziesz w <a href="https://policies.google.com/privacy?hl=pl" target="_blank" rel="noopener noreferrer">polityce prywatności Google</a> oraz w opisie <a href="https://policies.google.com/technologies/cookies?hl=pl" target="_blank" rel="noopener noreferrer">wykorzystania plików cookie przez Google</a>.</p>
+
+  <h2>Ustawienia przeglądarki</h2>
+  <p>Niezależnie od banera możesz usuwać i blokować pliki cookie w ustawieniach przeglądarki. Zablokowanie wszystkich plików cookie może jednak utrudnić działanie niektórych funkcji, np. wysłanie formularza.</p>
+  <ul class="cookies-page__browsers">
+    <li><a href="https://support.google.com/chrome/answer/95647?hl=pl" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+    <li><a href="https://support.microsoft.com/pl-pl/microsoft-edge/zarz%C4%85dzanie-plikami-cookie-w-przegl%C4%85darce-microsoft-edge-wy%C5%9Bwietlanie-zezwalanie-blokowanie-usuwanie-i-u%C5%BCywanie-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+    <li><a href="https://support.mozilla.org/pl/kb/usuwanie-ciasteczek-i-danych-stron" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+    <li><a href="https://support.apple.com/pl-pl/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari (Mac)</a></li>
+    <li><a href="https://support.apple.com/pl-pl/105082" target="_blank" rel="noopener noreferrer">Safari (iPhone i iPad)</a></li>
+  </ul>
+
+  <h2>Zmiany polityki</h2>
+  <p>Politykę aktualizujemy, gdy zmieniają się używane przez nas narzędzia lub przepisy. Aktualna wersja jest zawsze dostępna na tej stronie, a data ostatniej zmiany znajduje się na górze.</p>
+</article>
