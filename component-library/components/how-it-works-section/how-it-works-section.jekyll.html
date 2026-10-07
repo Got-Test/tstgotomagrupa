@@ -317,7 +317,7 @@
                 {% for partner in tooltip.partners %}
                   <div class="scheme-tooltip__partner">
                     <a href="{{ partner.href | relative_url }}" target="_blank" rel="noopener noreferrer">
-                      <img loading="lazy" decoding="async" src="{{ partner.logo | relative_url }}"
+                      <img loading="lazy" decoding="async" src="{{ partner.logo | relative_url }}"{% if partner.logo_width %} width="{{ partner.logo_width }}" height="{{ partner.logo_height }}"{% endif %}
                            alt="{{ partner.alt | default: partner.name | escape }}">
                     </a>
                   </div>
@@ -616,7 +616,7 @@
         {% for partner in tooltip.partners %}
           <div class="scheme-mobile-tooltip__partner">
             <a href="{{ partner.href | relative_url }}" target="_blank" rel="noopener noreferrer">
-              <img loading="lazy" decoding="async" src="{{ partner.logo | relative_url }}"
+              <img loading="lazy" decoding="async" src="{{ partner.logo | relative_url }}"{% if partner.logo_width %} width="{{ partner.logo_width }}" height="{{ partner.logo_height }}"{% endif %}
                    alt="{{ partner.alt | default: partner.name | escape }}">
             </a>
           </div>

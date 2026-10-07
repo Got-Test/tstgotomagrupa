@@ -14,8 +14,13 @@
   <div class="{{c}}__inner">
 
     {% if include.post.image %}
+    {% comment %} Mniejsze wersje zdjęcia (<nazwa>-480.webp, <nazwa>-720.webp) dla telefonów i tabletów, jeśli istnieją w /images {% endcomment %}
+    {% assign image_480 = include.post.image | replace: ".webp", "-480.webp" %}
+    {% assign image_720 = include.post.image | replace: ".webp", "-720.webp" %}
+    {% assign image_480_file = site.static_files | where: "path", image_480 | first %}
+    {% assign image_720_file = site.static_files | where: "path", image_720 | first %}
     <div class="{{c}}__media">
-      <img loading="lazy" decoding="async" src="{{ include.post.image }}" alt="">
+      <img loading="lazy" decoding="async" src="{{ include.post.image }}"{% if image_480_file and image_720_file and image_480 != include.post.image %} srcset="{{ image_480 }} 480w, {{ image_720 }} 720w, {{ include.post.image }} 810w" sizes="(max-width: 767px) calc(100vw - 36px), (max-width: 1199px) 320px, 590px"{% endif %} alt="">
     </div>
     {% endif %}
 

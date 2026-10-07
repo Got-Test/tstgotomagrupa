@@ -1,29 +1,33 @@
+---
+layout: null
+sitemap: false
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- comment -%}
+  Strony z kolekcji _pages, które mają język (lang). Szablonowe strony bez lang (about, blog, elements, projects)
+  oraz te z sitemap: false są pomijane. Para PL/EN dostaje wzajemne hreflang.
+{%- endcomment -%}
+{%- assign base = site.data.general_settings.url -%}
+{%- assign collection = site.collections | where: "label", "pages" | first -%}
+{%- assign docs = collection.docs | sort: "url" -%}
+{%- for doc in docs -%}
+  {%- unless doc.lang -%}{%- continue -%}{%- endunless -%}
+  {%- if doc.sitemap == false -%}{%- continue -%}{%- endif -%}
+  {%- if doc.url == "/" -%}{%- assign priority = "1.00" -%}
+  {%- elsif doc.url == "/en/" -%}{%- assign priority = "0.90" -%}
+  {%- elsif doc.url contains "privacy" -%}{%- assign priority = "0.30" -%}
+  {%- else -%}{%- assign priority = "0.80" -%}{%- endif %}
 <url>
-  <loc>https://www.grupagotoma.pl/</loc>
-  <lastmod>2026-05-06T12:29:36+00:00</lastmod>
-  <priority>1.00</priority>
+  <loc>{{ base }}{{ doc.url }}</loc>
+  {%- if doc.translation_url %}
+  <xhtml:link rel="alternate" hreflang="{{ doc.lang }}" href="{{ base }}{{ doc.url }}"/>
+  <xhtml:link rel="alternate" hreflang="{% if doc.lang == 'pl' %}en{% else %}pl{% endif %}" href="{{ base }}{{ doc.translation_url }}"/>
+  {%- endif %}
+  <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  <priority>{{ priority }}</priority>
 </url>
-<url>
-  <loc>https://www.grupagotoma.pl/en/</loc>
-  <lastmod>2026-05-06T12:29:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.grupagotoma.pl/privacy</loc>
-  <lastmod>2026-05-06T12:29:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.grupagotoma.pl/en/privacy</loc>
-  <lastmod>2026-05-06T12:29:36+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
+{%- endfor %}
 </urlset>

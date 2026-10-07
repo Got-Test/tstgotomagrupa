@@ -13,7 +13,7 @@
       {% for copy in (1..2) %}
         {% for partner in slider_partners %}
           <a class="c-partners__item" href="{{ partner.href }}" target="_blank" rel="noopener noreferrer"{% if copy == 2 %} tabindex="-1" aria-hidden="true"{% endif %}>
-            <img loading="lazy" decoding="async" src="{{ partner.logo | relative_url }}" alt="{{ partner.alt | escape }}">
+            <img loading="lazy" decoding="async" src="{{ partner.logo | relative_url }}"{% if partner.logo_width %} width="{{ partner.logo_width }}" height="{{ partner.logo_height }}"{% endif %} alt="{{ partner.alt | escape }}">
           </a>
         {% endfor %}
       {% endfor %}

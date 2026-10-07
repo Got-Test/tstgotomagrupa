@@ -7,7 +7,7 @@
         <div class="logo">
           <a class="logo__link" href="{{ site.data[page.lang].navigation.gotomaGeneralHref }}">
           {%if site.data[page.lang].navigation.logo_image2 %}
-            <img class="logo__image" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_image2 }}" alt="{{ site.data[page.lang].settings.title }}">
+            <img class="logo__image" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_image2 }}" alt="GOTOMA General">
           {% else %}
             {{ site.data.settings.title }}
           {% endif %}
@@ -15,7 +15,7 @@
           <span class="divider"></span>
           <a class="logo__link" href="{{ site.data[page.lang].navigation.gotomaHref }}">
           {%if site.data[page.lang].navigation.logo_image %}
-            <img class="logo__image" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_image }}" alt="{{ site.data[page.lang].settings.title }}">
+            <img class="logo__image" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_image }}" alt="GOTOMA Software House">
           {% else %}
             {{ site.data.settings.title }}
           {% endif %}
@@ -23,7 +23,7 @@
           <span class="divider"></span>
           <a class="logo__link" href="{{ site.data[page.lang].navigation.codariusHref }}">
           {%if site.data[page.lang].navigation.logo_image3 %}
-            <img class="logo__image" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_image3 }}" alt="{{ site.data[page.lang].settings.title }}">
+            <img class="logo__image" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_image3 }}" alt="Codarius">
           {% else %}
             {{ site.data.settings.title }}
           {% endif %}
@@ -41,7 +41,7 @@
         <nav class="main-nav">
           <a class="logo__link" href="{{ page.translation_url | default: site.data[page.lang].navigation.lang_href }}">
           {%if site.data[page.lang].navigation.logo_lang %}
-            <img class="logo__image" style="width: 30px; height:20px; border-radius: 3px; margin-right: 10px;" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_lang }}" alt="{{ site.data[page.lang].settings.title }}">
+            <img class="logo__image" width="30" height="20" style="width: 30px; height:20px; object-fit: cover; border-radius: 3px; margin-right: 10px;" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_lang }}" alt="{% if page.lang == 'pl' %}English version{% else %}Wersja polska{% endif %}">
           {% else %}
             {{ site.data.settings.title }}
           {% endif %}
@@ -101,7 +101,7 @@
         <div class="nav-button">
           <a class="logo__link" href="{{ page.translation_url | default: site.data[page.lang].navigation.lang_href }}">
           {%if site.data[page.lang].navigation.logo_lang %}
-            <img style="width: 30px; height:20px; border-radius: 3px; margin-right: 10px;" class="logo__image" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_lang }}" alt="{{ site.data[page.lang].settings.title }}">
+            <img class="logo__image" width="30" height="20" style="width: 30px; height:20px; object-fit: cover; border-radius: 3px; margin-right: 10px;" src="{{ site.baseurl }}{{ site.data[page.lang].navigation.logo_lang }}" alt="{% if page.lang == 'pl' %}English version{% else %}Wersja polska{% endif %}">
           {% else %}
             {{ site.data.settings.title }}
           {% endif %}
