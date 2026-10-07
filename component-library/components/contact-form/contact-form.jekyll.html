@@ -37,6 +37,7 @@
   {% assign err_email = "Please enter your email address." %}
   {% assign err_email_format = "Please enter a valid email address, e.g. john@company.com." %}
   {% assign err_consent = "Please accept the terms to send the enquiry." %}
+  {% assign submit_hint = "Tick the consent above to send the enquiry." %}
   {% assign err_number = "Please enter a whole number greater than zero." %}
   {% assign err_generic = "Please check this field." %}
 {% else %}
@@ -75,6 +76,7 @@
   {% assign err_email = "Podaj adres e-mail." %}
   {% assign err_email_format = "Wpisz poprawny adres e-mail, np. jan@firma.pl." %}
   {% assign err_consent = "Zaznacz zgodę, żeby wysłać zgłoszenie." %}
+  {% assign submit_hint = "Zaznacz zgodę powyżej, żeby wysłać zgłoszenie." %}
   {% assign err_number = "Podaj liczbę całkowitą większą od zera." %}
   {% assign err_generic = "Sprawdź to pole." %}
 {% endif %}
@@ -155,7 +157,8 @@
               <label><input type="checkbox" name="zgoda" required> <span>{{ consent_prefix }} <a href="{{ privacy_url }}">{{ privacy_label }}</a>.</span></label>
             </div>
             <div class="{{c}}__form-group {{c}}__form-group--button">
-              <button class="c-button c-button--primary c-button--large" type="submit">{{ include.form_button_text }}</button>
+              <button class="c-button c-button--primary c-button--large" type="submit" aria-describedby="form-submit-hint">{{ include.form_button_text }}</button>
+              <p class="{{c}}__submit-hint" id="form-submit-hint">{{ submit_hint }}</p>
             </div>
             <p class="{{c}}__status" role="status" aria-live="polite" hidden></p>
           </form>
@@ -445,6 +448,14 @@
 
     Array.prototype.forEach.call(document.querySelectorAll('form[data-cf7-form]'), function (form) {
       var button = form.querySelector('[type="submit"]');
+      // „Wyślij” aktywny dopiero po zaznaczeniu zgody (także po wyczyszczeniu formularza i po wysyłce)
+      var consent = form.querySelector('[name="zgoda"]');
+      var syncSubmit = function () {
+        button.disabled = form.dataset.busy === 'true' || !(consent && consent.checked);
+      };
+      if (consent) consent.addEventListener('change', syncSubmit);
+      form.addEventListener('reset', function () { setTimeout(syncSubmit, 0); });
+      syncSubmit();
       // reCAPTCHA dopiero przy pierwszym kontakcie z formularzem (nie obciąża ładowania strony)
       form.addEventListener('focusin', function () { loadRecaptcha().catch(function () {}); }, { once: true });
 
@@ -540,7 +551,7 @@
           setStatus(form, 'error', MSG.error, true);
         }).then(function () {
           form.dataset.busy = 'false';
-          button.disabled = false;
+          syncSubmit();
         });
       });
     });

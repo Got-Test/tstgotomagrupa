@@ -9,7 +9,9 @@
         <ul class="footer_nav list-reset">
           {% for item in site.data[page.lang].footer.footer_menu__settings.menu__items %}
           <li class="footer_nav__item">
-            <a href="{{ item.url | relative_url }}" class="footer_nav__link">{{ item.title }}</a>
+            {% comment %} sama kotwica (np. #ustawienia-cookies) zostaje na bieżącej stronie, bez relative_url (dawało /#...) {% endcomment %}
+            {% assign item_first = item.url | slice: 0 %}
+            <a href="{% if item_first == '#' %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}" class="footer_nav__link">{{ item.title }}</a>
           </li>
           {% endfor %}
         </ul>

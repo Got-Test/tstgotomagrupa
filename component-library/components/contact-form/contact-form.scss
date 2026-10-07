@@ -69,6 +69,27 @@
 
 		&--button {
 			text-align: center;
+
+			// „Wyślij” nieaktywny, dopóki nie ma zgody; podpowiedź widoczna tylko wtedy
+			.c-button:disabled {
+				opacity: .45;
+				cursor: not-allowed;
+				filter: saturate(.5);
+				box-shadow: none;
+				transform: none;
+			}
+		}
+	}
+
+	&__submit-hint {
+		display: none;
+		margin: 12px 0 0;
+		font-size: 14px;
+		line-height: 1.4;
+		opacity: .75;
+
+		.c-button:disabled + & {
+			display: block;
 		}
 	}
 

@@ -1,0 +1,44 @@
+{% comment %} Wygląd strony polityki cookies (PL /privacy/, EN /en/privacy/): czytelny tekst na ciemnym tle, złote akcenty. {% endcomment %}
+<style>
+  .cookies-page{max-width:880px;margin:0 auto;padding:140px 20px 96px;color:rgba(255,255,255,.86);font-size:16px;line-height:1.7;text-align:left}
+  .cookies-page__back{display:inline-block;margin-bottom:40px;color:#e4ad50;font-size:14px;text-decoration:none}
+  .cookies-page__back:hover{text-decoration:underline}
+  .cookies-page__eyebrow{margin:0 0 10px;color:#e4ad50;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+  .cookies-page h1{margin:0 0 10px;color:#fff;font-size:clamp(34px,5vw,48px);line-height:1.1;font-weight:600}
+  .cookies-page__updated{margin:0 0 36px;color:rgba(255,255,255,.55);font-size:14px}
+  .cookies-page h2{margin:52px 0 16px;color:#fff;font-size:24px;line-height:1.25;font-weight:600}
+  .cookies-page h3{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:32px 0 10px;color:#f7d47f;font-size:18px;font-weight:600}
+  .cookies-page p{margin:0 0 16px}
+  .cookies-page a{color:#f7d47f;text-decoration:underline;text-underline-offset:3px}
+  .cookies-page a:hover{color:#ffe8a4}
+  .cookies-page__tag{padding:4px 12px;border:1px solid rgba(228,173,80,.6);border-radius:999px;color:#e4ad50;font-size:12px;font-weight:500;letter-spacing:.02em}
+  .cookies-page .cookies-page__button{display:inline-block;padding:12px 22px;border-radius:8px;background:linear-gradient(90deg,#efe28b 0%,#d9bd6a 45%,#b98e48 100%);color:#120c02;font-weight:600;font-size:15px;text-decoration:none}
+  .cookies-page .cookies-page__button:hover{filter:brightness(1.05);color:#120c02}
+  .cookies-page__table{margin:14px 0 8px;overflow-x:auto;border:1px solid rgba(228,173,80,.22);border-radius:12px}
+  .cookies-page table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5}
+  .cookies-page th,.cookies-page td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(255,255,255,.08)}
+  .cookies-page th{color:#fff;font-weight:600;background:rgba(228,173,80,.08);white-space:nowrap}
+  .cookies-page tr:last-child td{border-bottom:0}
+  .cookies-page code{color:#fff;font-size:13px;font-family:ui-monospace,Consolas,monospace}
+  .cookies-page small{color:rgba(255,255,255,.5);font-size:12px}
+  .cookies-page__browsers{display:flex;flex-wrap:wrap;gap:8px 20px;margin:8px 0 0;padding:0;list-style:none}
+  /* globalny CSS motywu nadaje tabelom jasne pasy: tutaj ciemne tło i jasny tekst */
+  .cookies-page table,.cookies-page thead,.cookies-page tbody,.cookies-page tr,.cookies-page th,.cookies-page td{background:transparent !important;color:rgba(255,255,255,.86) !important}
+  .cookies-page th{background:rgba(228,173,80,.1) !important;color:#fff !important}
+  .cookies-page td code{color:#fff !important}
+  .cookies-page td small{color:rgba(255,255,255,.5) !important}
+  .cookies-page table{margin:0 !important;border:0 !important}
+  .cookies-page th,.cookies-page td{border:0 !important;border-bottom:1px solid rgba(255,255,255,.08) !important}
+  .cookies-page tbody tr:last-child td{border-bottom:0 !important}
+  /* telefon: wiersze jako karty z etykietami pól */
+  @media (max-width:640px){
+    .cookies-page{padding:110px 16px 72px;font-size:15px}
+    .cookies-page__table{border:0;overflow:visible}
+    .cookies-page table,.cookies-page tbody,.cookies-page tr,.cookies-page td{display:block;width:100%}
+    .cookies-page thead{display:none}
+    .cookies-page tr{margin:0 0 12px;padding:6px 14px;border:1px solid rgba(228,173,80,.22);border-radius:12px}
+    .cookies-page td{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .cookies-page td::before{content:attr(data-label);color:rgba(247,212,127,.85);font-size:12px;font-weight:600}
+    .cookies-page tr td:last-child{border-bottom:0 !important}
+  }
+</style>
