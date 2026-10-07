@@ -18,6 +18,20 @@
     var LIGHT = [255, 236, 178];
     var smooth = function (x) { return x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x); };
 
+    // Animacja rusza dopiero po pierwszej interakcji (jak sekwencja diagramu w common.js). Sekcja leży tuż pod
+    // pełnoekranowym hero, więc z wyprzedzeniem 200 px liczyła się jako widoczna od razu po załadowaniu:
+    // canvas rysował 30 klatek/s w trakcie ładowania strony i podbijał TBT (~40% w pomiarach na telefonie).
+    var armed = false, armers = [];
+    var armEvents = ['scroll', 'wheel', 'touchstart', 'keydown', 'pointerdown'];
+    var arm = function () {
+      if (armed) return;
+      armed = true;
+      armEvents.forEach(function (type) { window.removeEventListener(type, arm); });
+      armers.forEach(function (fn) { fn(); });
+    };
+    armEvents.forEach(function (type) { window.addEventListener(type, arm, { passive: true }); });
+    if (window.scrollY > 0) arm(); // strona otwarta od razu niżej (odświeżenie w połowie, kotwica)
+
     function GoldDots(host, opts) {
       var canvas = document.createElement('canvas');
       canvas.className = 'scheme-gold-dots';
@@ -124,7 +138,8 @@
         }
       }
 
-      function start() { if (!raf) raf = requestAnimationFrame(frame); }
+      function start() { if (!raf && armed) raf = requestAnimationFrame(frame); }
+      armers.push(function () { if (visible) start(); });
       this.resize = function () { needsBuild = true; if (visible) start(); };
       new ResizeObserver(this.resize).observe(opts.observe || canvas);
       new IntersectionObserver(function (e) { visible = e[0].isIntersecting; if (visible) start(); }, { rootMargin: '200px 0px' }).observe(host);
