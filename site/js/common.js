@@ -324,6 +324,10 @@ function initializeCommon() {
   /* Sekwencje diagramu tworzymy przy pierwszej interakcji (scroll, dotyk, klawisz, kliknięcie);
      żeby dojść do diagramu i tak trzeba przewinąć stronę. Sekcja leży pod pełnoekranowym hero, więc w tym momencie jest jeszcze poza ekranem:
      zmiana układu i wstawienie pin-spacera są niewidoczne, a ciężka konfiguracja (~200 ms) nie blokuje ładowania. */
+  /* Tymczasowo wyłączone: przewijana sekwencja diagramu (pin, przejście po krokach, zbliżenie) myliła
+     użytkowników („strona się zawiesiła”). Diagram jest statyczny jak przy prefers-reduced-motion;
+     tooltipy działają normalnie. true = przywraca sekwencję. */
+  const DIAGRAM_SCROLL_STORY_ENABLED = false;
   const storySetups = [];
   let storiesStarted = false;
   const startStories = () => {
@@ -550,7 +554,7 @@ function initializeCommon() {
       gsap.set(eyebrow, { autoAlpha: 0, y: 12 });
       gsap.set(progress, { scaleX: 0 });
 
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (!DIAGRAM_SCROLL_STORY_ENABLED || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         section.dataset.scrollStoryCompleted = "true";
         section.classList.add("scheme-scroll-story-complete");
         document.dispatchEvent(new CustomEvent("scheme:desktop-interactive", {
@@ -737,6 +741,11 @@ function initializeCommon() {
         const backdrop = mobile?.querySelector("[data-mobile-tooltip-backdrop]");
 
         if (!section || !mobile || !diagram || !header || !sheets.length) {
+          return;
+        }
+
+        if (!DIAGRAM_SCROLL_STORY_ENABLED) {
+          section.dataset.scrollStoryCompleted = "true";
           return;
         }
 
